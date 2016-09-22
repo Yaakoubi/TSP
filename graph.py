@@ -27,7 +27,7 @@ class Graph(object):
     def __repr__(self):
         name = self.get_name()
         nb_nodes = self.get_nb_nodes()
-        s = 'Graphe %s comprenant %d noeuds' % (name, nb_nodes)
+        s = 'Graphe {0!s} comprenant {1:d} noeuds'.format(name, nb_nodes)
         for node in self.get_nodes():
             s += '\n  ' + repr(node)
         return s
@@ -39,6 +39,6 @@ if __name__ == '__main__':
 
     G = Graph(name='Graphe test')
     for k in range(5):
-        G.add_node(Node(name='Noeud test %d' % k))
+        G.add_node(Node(name='Noeud test {0:d}'.format(k)))
 
     print G
