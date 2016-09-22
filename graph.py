@@ -4,6 +4,7 @@ class Graph(object):
     noeuds.
     """
 
+
     def __init__(self, name='Sans nom'):
         self.__name = name
         self.__nodes = []   # Attribut prive.
