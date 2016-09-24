@@ -42,12 +42,10 @@ def read_nodes(header, fd,G):
     display_data_type = header['DISPLAY_DATA_TYPE']
     if node_coord_type not in ['TWOD_COORDS', 'THREED_COORDS'] and \
             display_data_type not in ['COORDS_DISPLAY', 'TWOD_DISPLAY']:
-
-            # Node coordinates are not given.
-            for i in range(header['DIMENSION']):
-                N = Node()
-                G.add_node(Node(name='Noeud {0:d}'.format(i),data=[1000*random()//1,1000*random()//1 ]))
-            return nodes
+        # Node coordinates are not given.
+        for i in range(header['DIMENSION']):
+            G.add_node(Node(name='Noeud {0:d}'.format(i),data=[1000*random()//1,1000*random()//1 ]))
+        return nodes
 
     dim = header['DIMENSION']
     fd.seek(0)

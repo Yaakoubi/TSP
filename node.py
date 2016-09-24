@@ -24,10 +24,10 @@ class Node(object):
         return self.__data
 
     def __repr__(self):
-        id = self.get_id()
+        indice = self.get_id()
         name = self.get_name()
         data = self.get_data()
-        s  = 'Noeud {0!s} (id {1:d})'.format(name, id)
+        s  = 'Noeud {0!s} (id {1:d})'.format(name, indice)
         s += ' (donnees: ' + repr(data) + ')'
         return s
 
