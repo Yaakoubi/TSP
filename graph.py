@@ -103,7 +103,7 @@ if __name__ == '__main__':
             id_start = G.get_node(i).get_id() # == i
             id_arrival = G.get_node(j).get_id() # == j
             #print  id_start , id_arrival , '\n'
-            Data = [id_start,id_arrival,id_start+id_arrival]
-            G.add_edge(Edge(name='E from {0:d} to {1:d}'.format(id_start, id_arrival), data=Data))
+            e_data = [id_start,id_arrival,id_start+id_arrival]
+            G.add_edge(Edge(name='E from {0:d} to {1:d}'.format(id_start, id_arrival), data= e_data))
     G.plot_graph ()
     print ( G )
