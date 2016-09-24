@@ -43,11 +43,11 @@ def read_nodes(header, fd,G):
     if node_coord_type not in ['TWOD_COORDS', 'THREED_COORDS'] and \
             display_data_type not in ['COORDS_DISPLAY', 'TWOD_DISPLAY']:
 
-                # Node coordinates are not given.
-                for i in range(header['DIMENSION']):
-                    N = Node()
-                    G.add_node(Node(name='Noeud {0:d}'.format(i),data=[1000*random()//1,1000*random()//1 ]))
-                return nodes
+            # Node coordinates are not given.
+            for i in range(header['DIMENSION']):
+                N = Node()
+                G.add_node(Node(name='Noeud {0:d}'.format(i),data=[1000*random()//1,1000*random()//1 ]))
+            return nodes
 
     dim = header['DIMENSION']
     fd.seek(0)
@@ -149,30 +149,30 @@ def read_edges(header, fd):
                         G.add_edge(e)
                     elif edge_weight_format in ['UPPER_DIAG_ROW', \
                                                 'LOWER_DIAG_COL'] and ( k != k+i) :
-                            edge = (k, i+k)
-                            e_data = [k, i+k,int(data[j])]
-                            e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k), data= e_data)
-                            edges.add(edge)
-                            G.add_edge(e)
+                        edge = (k, i+k)
+                        e_data = [k, i+k,int(data[j])]
+                        e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k), data= e_data)
+                        edges.add(edge)
+                        G.add_edge(e)
                     elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW'] and ( i+k+1 != k) :
-                            edge = (i+k+1, k)
-                            e_data = [i+k+1, k ,int(data[j])]
-                            e = Edge(name='E from {0:d} to {1:d}'.format(i+k+1, 1), data= e_data)
-                            edges.add(edge)
-                            G.add_edge(e)
+                        edge = (i+k+1, k)
+                        e_data = [i+k+1, k ,int(data[j])]
+                        e = Edge(name='E from {0:d} to {1:d}'.format(i+k+1, 1), data= e_data)
+                        edges.add(edge)
+                        G.add_edge(e)
                     elif edge_weight_format in ['UPPER_DIAG_COL', \
                                                 'LOWER_DIAG_ROW'] and  ( i != k ) :
-                            edge = (i, k)
-                            e_data = [i,k,int(data[j])]
-                            e = Edge(name='E from {0:d} to {1:d}'.format(i,k), data= e_data)
-                            edges.add(edge)
-                            G.add_edge(e)
+                        edge = (i, k)
+                        e_data = [i,k,int(data[j])]
+                        e = Edge(name='E from {0:d} to {1:d}'.format(i,k), data= e_data)
+                        edges.add(edge)
+                        G.add_edge(e)
                     elif edge_weight_format == 'FULL_MATRIX' and ( k < i ) :
-                            edge = (k, i)
-                            e_data = [k, i,int(data[j])]
-                            e = Edge(name='E from {0:d} to {1:d}'.format(k, i), data= e_data)
-                            edges.add(edge)
-                            G.add_edge(e)
+                        edge = (k, i)
+                        e_data = [k, i,int(data[j])]
+                        e = Edge(name='E from {0:d} to {1:d}'.format(k, i), data= e_data)
+                        edges.add(edge)
+                        G.add_edge(e)
                     i += 1
 
                 # Update number of items remaining to be read.

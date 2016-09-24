@@ -8,8 +8,8 @@ le poids est integré dans la lecture d'edges
 supposons que ce qu'a donnée le prof est RempProf ( méthodes de remplissage et d'affichage données par le prof )
 on crée un graph dans le main de read_stp, et on le remplie en parallèle avec RempProf, ensuite on affiche le 1er graphe du prof, on ferme la fenêtre, le graphe affiché avec G.plot_graph s'affiche, c'est le même => Cool !
 on suppose qu'on ne fait aucune redondance dans le remplissage, et donc on ne lit pas les arrêtes entre le point et lui même, et dans le cas d'un full duplex, on ne lit que la moitié basse de la matrice ( le rest étant redondant) , à modifier par la suite ?
+
 ce qui reste à ajouter ajourd'hui (par moi):
-- tests
 - double dictionnaire, probablement avec la méthode G.set_dictionnary()
 
 
