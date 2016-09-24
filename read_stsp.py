@@ -1,5 +1,9 @@
 import numpy as np
 
+from graph import Graph
+from node import Node
+from edge import Edge
+from random import random
 
 def read_header(fd):
     "Parse a .tsp file and return a dictionary with header data."
@@ -25,7 +29,7 @@ def read_header(fd):
     return header
 
 
-def read_nodes(header, fd):
+def read_nodes(header, fd,G):
     """
     Parse a .tsp file and return a dictionary of nodes, of the form
     {id:(x,y)}. If node coordinates are not given, an empty dictionary is
@@ -40,6 +44,9 @@ def read_nodes(header, fd):
             display_data_type not in ['COORDS_DISPLAY', 'TWOD_DISPLAY']:
 
                 # Node coordinates are not given.
+                for i in range(header['DIMENSION']):
+                    N = Node()
+                    G.add_node(Node(name='Noeud {0:d}'.format(i),data=[1000*random()//1,1000*random()//1 ]))
                 return nodes
 
     dim = header['DIMENSION']
@@ -59,6 +66,8 @@ def read_nodes(header, fd):
         if display_data_section:
             data = line.strip().split()
             nodes[int(data[0]) - 1] = tuple(map(float, data[1:]))
+
+            G.add_node(Node('Node',data = map(float, data[1:])))
             k += 1
             if k >= dim:
                 break
@@ -67,12 +76,15 @@ def read_nodes(header, fd):
         elif node_coord_section:
             data = line.strip().split()
             nodes[int(data[0]) - 1] = tuple(map(float, data[1:]))
+
+            G.add_node(Node('Node', data=map(float, data[1:])))
             k += 1
             if k >= dim:
                 break
             continue
 
     return nodes
+
 
 
 def read_edges(header, fd):
@@ -130,18 +142,42 @@ def read_edges(header, fd):
                 for j in xrange(start, start + n_on_this_line):
                     n_edges += 1
                     if edge_weight_format in ['UPPER_ROW', 'LOWER_COL']:
-                        edge = (k, i+k+1)
+                        if ( k != i+k+1) :
+                            edge = (k, i+k+1)
+                            Data = [ k, i+k+1,int(data[j])]
+                            e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k+1), data=Data)
+                            edges.add(edge)
+                            G.add_edge(e)
                     elif edge_weight_format in ['UPPER_DIAG_ROW', \
                                                 'LOWER_DIAG_COL']:
-                        edge = (k, i+k)
+                        if ( k != k+i) :
+                            edge = (k, i+k)
+                            Data = [k, i+k,int(data[j])]
+                            e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k), data=Data)
+                            edges.add(edge)
+                            G.add_edge(e)
                     elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW']:
-                        edge = (i+k+1, k)
+                        if ( i+k+1 != k) :
+                            edge = (i+k+1, k)
+                            Data = [i+k+1, k ,int(data[j])]
+                            e = Edge(name='E from {0:d} to {1:d}'.format(i+k+1, 1), data=Data)
+                            edges.add(edge)
+                            G.add_edge(e)
                     elif edge_weight_format in ['UPPER_DIAG_COL', \
                                                 'LOWER_DIAG_ROW']:
-                        edge = (i, k)
+                        if ( i != k ) :
+                            edge = (i, k)
+                            Data = [i,k,int(data[j])]
+                            e = Edge(name='E from {0:d} to {1:d}'.format(i,k), data=Data)
+                            edges.add(edge)
+                            G.add_edge(e)
                     elif edge_weight_format == 'FULL_MATRIX':
-                        edge = (k, i)
-                    edges.add(edge)
+                        if ( k < i ) :
+                            edge = (k, i)
+                            Data = [k, i,int(data[j])]
+                            e = Edge(name='E from {0:d} to {1:d}'.format(k, i), data=Data)
+                            edges.add(edge)
+                            G.add_edge(e)
                     i += 1
 
                 # Update number of items remaining to be read.
@@ -197,7 +233,7 @@ if __name__ == "__main__":
     import sys
 
     finstance = sys.argv[1]
-
+    G = Graph ()
     with open(finstance, "r") as fd:
 
         header = read_header(fd)
@@ -206,11 +242,14 @@ if __name__ == "__main__":
         edge_weight_format = header['EDGE_WEIGHT_FORMAT']
 
         print "Reading nodes"
-        nodes = read_nodes(header, fd)
+        nodes = read_nodes(header, fd,G)
         print nodes
 
         print "Reading edges"
         edges = read_edges(header, fd)
+
+        #G.set_dictionnary()
+
         edge_list = []
         for k in range(dim):
             edge_list.append([])
@@ -226,3 +265,7 @@ if __name__ == "__main__":
 
     if len(nodes) > 0:
         plot_graph(nodes, edges)
+
+    G.plot_graph()
+
+    print ( G )
