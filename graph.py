@@ -96,14 +96,14 @@ if __name__ == '__main__':
 
 
     G = Graph(name='Graphe test')
-    for k in range(10):
+    for k in range(10): # nb_nodes ici = 10
         G.add_node(Node(name='Ntest {0:d}'.format(k),data=[1000*rand.random()//1,1000*rand.random()//1 ]))
     for i in range(G.get_nb_nodes()):
-        for j in range(i) :
-            A = G.get_node(i).get_id()
-            B = G.get_node(j).get_id()
-            print  A , B , '\n'
-            Data = [A,B,i+j]
-            G.add_edge(Edge(name='Etest {0:d}'.format(k),data=Data))
+        for j in range(i) : # pas de redondance , donc nb_edges = nb_nodes * (nb_nodes-1) /2
+            id_start = G.get_node(i).get_id() # == i
+            id_arrival = G.get_node(j).get_id() # == j
+            #print  id_start , id_arrival , '\n'
+            Data = [id_start,id_arrival,id_start+id_arrival]
+            G.add_edge(Edge(name='E from {0:d} to {1:d}'.format(id_start, id_arrival), data=Data))
     G.plot_graph ()
-    print G
+    print ( G )

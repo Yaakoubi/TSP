@@ -105,13 +105,13 @@ def read_edges(header, fd):
         format = edge_weight_format
         if format == 'FULL_MATRIX':
             return dim
-        if format == 'LOWER_DIAG_ROW' or format == 'UPPER_DIAG_COL':
+        if format in [ 'LOWER_DIAG_ROW' , 'UPPER_DIAG_COL'] :
             return n+1
-        if format == 'LOWER_DIAG_COL' or format == 'UPPER_DIAG_ROW':
+        if format in [ 'LOWER_DIAG_COL' , 'UPPER_DIAG_ROW'] :
             return dim-n
-        if format == 'LOWER_ROW' or format == 'UPPER_COL':
+        if format in [ 'LOWER_ROW' , 'UPPER_COL'] :
             return n
-        if format == 'LOWER_COL' or format == 'UPPER_ROW':
+        if format in [ 'LOWER_COL' , 'UPPER_ROW' ] :
             return dim-n-1
 
     fd.seek(0)
@@ -141,38 +141,33 @@ def read_edges(header, fd):
                 # Read edges.
                 for j in xrange(start, start + n_on_this_line):
                     n_edges += 1
-                    if edge_weight_format in ['UPPER_ROW', 'LOWER_COL']:
-                        if ( k != i+k+1) :
-                            edge = (k, i+k+1)
-                            Data = [ k, i+k+1,int(data[j])]
-                            e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k+1), data=Data)
-                            edges.add(edge)
-                            G.add_edge(e)
+                    if edge_weight_format in ['UPPER_ROW', 'LOWER_COL'] and ( k != i+k+1) :
+                        edge = (k, i+k+1)
+                        Data = [ k, i+k+1,int(data[j])]
+                        e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k+1), data=Data)
+                        edges.add(edge)
+                        G.add_edge(e)
                     elif edge_weight_format in ['UPPER_DIAG_ROW', \
-                                                'LOWER_DIAG_COL']:
-                        if ( k != k+i) :
+                                                'LOWER_DIAG_COL'] and ( k != k+i) :
                             edge = (k, i+k)
                             Data = [k, i+k,int(data[j])]
                             e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k), data=Data)
                             edges.add(edge)
                             G.add_edge(e)
-                    elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW']:
-                        if ( i+k+1 != k) :
+                    elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW'] and ( i+k+1 != k) :
                             edge = (i+k+1, k)
                             Data = [i+k+1, k ,int(data[j])]
                             e = Edge(name='E from {0:d} to {1:d}'.format(i+k+1, 1), data=Data)
                             edges.add(edge)
                             G.add_edge(e)
                     elif edge_weight_format in ['UPPER_DIAG_COL', \
-                                                'LOWER_DIAG_ROW']:
-                        if ( i != k ) :
+                                                'LOWER_DIAG_ROW'] and  ( i != k ) :
                             edge = (i, k)
                             Data = [i,k,int(data[j])]
                             e = Edge(name='E from {0:d} to {1:d}'.format(i,k), data=Data)
                             edges.add(edge)
                             G.add_edge(e)
-                    elif edge_weight_format == 'FULL_MATRIX':
-                        if ( k < i ) :
+                    elif edge_weight_format == 'FULL_MATRIX' and ( k < i ) :
                             edge = (k, i)
                             Data = [k, i,int(data[j])]
                             e = Edge(name='E from {0:d} to {1:d}'.format(k, i), data=Data)
