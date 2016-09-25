@@ -9,19 +9,24 @@ class Graph(object):
     noeuds.
     """
 
+    __node_count = 0
+    __edge_count = 0
 
     def __init__(self, name='Sans nom'):
         self.__name = name
         self.__nodes = []   # Attribut prive.
         self.__edges = []  # Attribut prive.
+        self.__dict = { }
 
     def add_node(self, node):
         """Ajoute un noeud au graphe."""
         self.__nodes.append(node)
+        self.__node_count += 1
 
     def add_edge(self, edge):
         """Ajoute un arrete au graphe."""
         self.__edges.append(edge)
+        self.__edge_count += 1
 
     def get_name(self):
         """"Donne le nom du graphe."""
@@ -42,11 +47,30 @@ class Graph(object):
 
     def get_nb_nodes(self):
         """Donne le nombre de noeuds du graphe."""
-        return len(self.__nodes)
+        return self.__node_count
 
     def get_nb_edges(self):
         """Donne le nombre de arretes du graphe."""
-        return len(self.__edges)
+        return self.__edge_count
+
+    def add_to_dict (self,edge):
+        """ ajoute un element dans le double dictionnaire
+        si e est un arrete entre noeud 1 et noeud 2
+        on ajoute noeud1 -> noeud2 -> e """
+        tempo_dict = self.__dict.get(edge.get_data()[0])
+        if ( tempo_dict == None ) :
+            tempo_dict = {}
+        tempo_dict[edge.get_data()[1]] = edge
+        self.__dict[edge.get_data()[0]] = tempo_dict
+
+
+    def get_edge_from_dict(self, indice1,indice2):
+        """retourne l'arrete entre le noeud d'indice 1 et le noeud d'incide 2"""
+        edge =  self.__dict.get(indice1).get(indice2)
+        if (edge == None ) :
+            edge = (self.__dict[indice2])[indice1]
+        return edge
+
 
     def __repr__(self):
         """Redefinie l'ffichage """
@@ -59,6 +83,9 @@ class Graph(object):
             res += '\n  ' + repr(node)
         for edge in self.get_edges():
             res += '\n  ' + repr(edge)
+        for node1 , data_node1 in self.__dict.items():
+            for node2, edge in data_node1.items():
+                res += '\n  new :' + repr(edge)
         return res
 
 
@@ -111,5 +138,10 @@ if __name__ == '__main__':
             e_data = [id_start, id_arrival, id_start+id_arrival]
             e = Edge(name='E from {0:d} to {1:d}'.format(id_start, id_arrival), data=e_data)
             G.add_edge(e)
+            G.add_to_dict(e)
     G.plot_graph()
-    print G
+
+    print ( G.get_edge_from_dict ( 3 , 6 ))
+
+    #print G
+

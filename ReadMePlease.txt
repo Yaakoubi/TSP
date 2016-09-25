@@ -31,9 +31,19 @@ Remarques :
 ----------------------------------------------------------------------------------------------------------------------------------
 
 
-Push 2 du 24 septembre (YY) :
+Push 2 du 25 septembre (YY) :
 
------Pending-----
+double dictionnaire ajouté
+fonction pour ajouter un arrête à chaque fois au double dictionnaire
+fonction pour obtenir un arrête basé sur les indices des deux noeuds en bout
+par exemple, si noeud entre noeud d'indice 1 et noeud d'indice 2,
+on cherche dans le double dictionnaire s'il y a dans l'entrée noeud 1, une entrée noeud 2, si oui, renvoyer l'arrete
+sinon, on cherche dans l'entrée noeud 2 une entrée noeud 1, si on est là, c'est qu'il y'en a certainement (graphe complet)
+c'est surtout du à ce qu'on fait pas de redondance dans le graphe, on met une information que si elle n'est pas déjà connue
+à priori, ça marche bien, rester à tester
+sinon, y a aussi beaucoup de redondance à enlever une fois que le rapport est fait
+aussi, comme y a un tableau qui contient les edges, et le double dictionnaire contient aussi les edges indexés selon les indices des noeuds et tout, je sais pas trop s'il faut supprimer le tableau ou pas, finalement on a une redondance, mais je sais po, 
+faudrait qu'on en discute et qu'on la mette potentiellement dans la partie difficultés
 
 
 ----------------------------------------------------------------------------------------------------------------------------------

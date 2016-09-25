@@ -145,6 +145,7 @@ def read_edges(header, fd):
                         e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k+1), data=e_data)
                         edges.add(edge)
                         G.add_edge(e)
+                        G.add_to_dict(e)
                     elif edge_weight_format in ['UPPER_DIAG_ROW', \
                                                 'LOWER_DIAG_COL'] and ( k != k+i) :
                         edge = (k, i+k)
@@ -152,12 +153,14 @@ def read_edges(header, fd):
                         e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k), data= e_data)
                         edges.add(edge)
                         G.add_edge(e)
+                        G.add_to_dict(e)
                     elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW'] and ( i+k+1 != k) :
                         edge = (i+k+1, k)
                         e_data = [i+k+1, k ,int(data[j])]
                         e = Edge(name='E from {0:d} to {1:d}'.format(i+k+1, 1), data= e_data)
                         edges.add(edge)
                         G.add_edge(e)
+                        G.add_to_dict(e)
                     elif edge_weight_format in ['UPPER_DIAG_COL', \
                                                 'LOWER_DIAG_ROW'] and  ( i != k ) :
                         edge = (i, k)
@@ -165,12 +168,14 @@ def read_edges(header, fd):
                         e = Edge(name='E from {0:d} to {1:d}'.format(i,k), data= e_data)
                         edges.add(edge)
                         G.add_edge(e)
+                        G.add_to_dict(e)
                     elif edge_weight_format == 'FULL_MATRIX' and ( k < i ) :
                         edge = (k, i)
                         e_data = [k, i,int(data[j])]
                         e = Edge(name='E from {0:d} to {1:d}'.format(k, i), data= e_data)
                         edges.add(edge)
                         G.add_edge(e)
+                        G.add_to_dict(e)
                     i += 1
 
                 # Update number of items remaining to be read.
