@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7990e302-875b-43fc-8c2d-82c8bdc02de6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadMePlease.txt" afterPath="$PROJECT_DIR$/ReadMePlease.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_edge.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_graph.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_node.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Tests.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graph.py" afterPath="$PROJECT_DIR$/graph.py" />
     </list>
     <ignored path="Projet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,24 +31,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="graph.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="graph.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/graph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+            <state relative-caret-position="-32">
+              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
               <folding>
-                <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-                <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-                <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#478#610#0" expanded="false" />
+                <element signature="e#650#784#0" expanded="false" />
+                <element signature="e#818#875#0" expanded="false" />
+                <element signature="e#910#980#0" expanded="false" />
+                <element signature="e#1022#1103#0" expanded="false" />
+                <element signature="e#1139#1210#0" expanded="false" />
+                <element signature="e#1248#1323#0" expanded="false" />
+                <element signature="e#1361#1437#0" expanded="false" />
+                <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="read_stsp.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_graph.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_graph.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#802#990#0" expanded="false" />
+                <element signature="e#1037#1300#0" expanded="false" />
+                <element signature="e#1340#1580#0" expanded="false" />
+                <element signature="e#1628#1900#0" expanded="false" />
+                <element signature="e#1953#2223#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_stack.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Téléchargements/test_stack.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="14" column="52" selection-start-line="13" selection-start-column="3" selection-end-line="14" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="node.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edge.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edge.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_node.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_node.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="64" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="read_stsp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/read_stsp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-47">
+            <state relative-caret-position="3165">
               <caret line="232" column="25" selection-start-line="232" selection-start-column="16" selection-end-line="232" selection-end-column="25" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -53,32 +126,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests.py">
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="96" column="76" selection-start-line="96" selection-start-column="76" selection-end-line="96" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edge.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/edge.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-              <folding />
+            <state relative-caret-position="30">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="e#37#58#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,9 +156,13 @@
       <list>
         <option value="$PROJECT_DIR$/edge.py" />
         <option value="$PROJECT_DIR$/node.py" />
-        <option value="$PROJECT_DIR$/graph.py" />
         <option value="$PROJECT_DIR$/Tests.py" />
         <option value="$PROJECT_DIR$/read_stsp.py" />
+        <option value="$PROJECT_DIR$/tests.py" />
+        <option value="$PROJECT_DIR$/test_node.py" />
+        <option value="$PROJECT_DIR$/test_edge.py" />
+        <option value="$PROJECT_DIR$/graph.py" />
+        <option value="$PROJECT_DIR$/test_graph.py" />
       </list>
     </option>
   </component>
@@ -150,9 +209,14 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -163,7 +227,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -172,61 +235,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.graph">
-    <configuration default="false" name="read_stsp" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/bin/python2.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projet" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/read_stsp.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/instances/instances/stsp/Test_full_matrix.tsp" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="node" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projet" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/node.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="edge" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projet" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/edge.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.test_graph">
     <configuration default="false" name="graph" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -241,6 +250,82 @@
       <module name="Projet" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/graph.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_node" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projet" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_node.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_edge" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projet" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_edge.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Nosetest TestgraphMethods.test_add_to_dict" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projet" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_graph.py" />
+      <option name="CLASS_NAME" value="TestgraphMethods" />
+      <option name="METHOD_NAME" value="test_add_to_dict" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_METHOD" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_graph" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projet" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_graph.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -385,18 +470,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python.read_stsp" />
-      <item index="1" class="java.lang.String" itemvalue="Python.node" />
-      <item index="2" class="java.lang.String" itemvalue="Python.edge" />
-      <item index="3" class="java.lang.String" itemvalue="Python.graph" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.graph" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test_node" />
+      <item index="2" class="java.lang.String" itemvalue="Python.test_edge" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetest TestgraphMethods.test_add_to_dict" />
+      <item index="4" class="java.lang.String" itemvalue="Python.test_graph" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.graph" />
-        <item index="1" class="java.lang.String" itemvalue="Python.read_stsp" />
-        <item index="2" class="java.lang.String" itemvalue="Python.edge" />
-        <item index="3" class="java.lang.String" itemvalue="Python.node" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.test_graph" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetest TestgraphMethods.test_add_to_dict" />
+        <item index="2" class="java.lang.String" itemvalue="Python.graph" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test_edge" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test_node" />
       </list>
     </recent_temporary>
   </component>
@@ -416,16 +503,33 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Nosetest_TestEdgeMethods_test_repr - 2016.09.26 at 16h 54m 02s.xml">
+      <configuration name="Nosetest TestEdgeMethods.test_repr" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetest_TestgraphMethods_test_add_to_dict - 2016.09.26 at 17h 37m 58s.xml">
+      <configuration name="Nosetest TestgraphMethods.test_add_to_dict" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetest_TestgraphMethods_test_add_to_dict - 2016.09.26 at 17h 44m 26s.xml">
+      <configuration name="Nosetest TestgraphMethods.test_add_to_dict" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetest_TestgraphMethods_test_add_to_dict - 2016.09.26 at 17h 46m 55s.xml">
+      <configuration name="Nosetest TestgraphMethods.test_add_to_dict" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_TestEdgeMethods - 2016.09.26 at 16h 53m 48s.xml">
+      <configuration name="Nosetests in TestEdgeMethods" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18153365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -470,49 +574,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/read_stsp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="140" column="32" selection-start-line="140" selection-start-column="32" selection-end-line="140" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#140#823#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/numpy/core/numeric.py" />
-    <entry file="file://$PROJECT_DIR$/read_stsp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="264" column="24" selection-start-line="264" selection-start-column="24" selection-end-line="264" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#140#823#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edge.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -526,9 +587,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -539,9 +607,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -579,9 +654,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -619,9 +701,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -659,9 +748,16 @@
         <state relative-caret-position="1365">
           <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -699,9 +795,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -739,9 +842,16 @@
         <state relative-caret-position="825">
           <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -779,9 +889,16 @@
         <state relative-caret-position="495">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -810,9 +927,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -822,9 +946,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>
@@ -837,45 +968,16 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/numpy/core/numeric.py" />
-    <entry file="file://$PROJECT_DIR$/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <marker date="1474912321604" expanded="true" signature="0:86" ph="import ..." />
-            <marker date="1474912321604" expanded="true" signature="108:211" ph="..." />
-            <marker date="1474912321604" expanded="true" signature="113:209" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///media/alex/ANPF/Alex/Python/TSP(copie)/Tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="59" column="18" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
+        <state relative-caret-position="1380">
           <caret line="96" column="76" selection-start-line="96" selection-start-column="76" selection-end-line="96" selection-end-column="76" />
           <folding />
         </state>
@@ -883,11 +985,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/read_stsp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-47">
+        <state relative-caret-position="3165">
           <caret line="232" column="25" selection-start-line="232" selection-start-column="16" selection-end-line="232" selection-end-column="25" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#140#823#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_edge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#37#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="64" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Téléchargements/test_stack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="52" selection-start-line="13" selection-start-column="3" selection-end-line="14" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#802#990#0" expanded="false" />
+            <element signature="e#1037#1300#0" expanded="false" />
+            <element signature="e#1340#1580#0" expanded="false" />
+            <element signature="e#1628#1900#0" expanded="false" />
+            <element signature="e#1953#2223#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#478#610#0" expanded="false" />
+            <element signature="e#650#784#0" expanded="false" />
+            <element signature="e#818#875#0" expanded="false" />
+            <element signature="e#910#980#0" expanded="false" />
+            <element signature="e#1022#1103#0" expanded="false" />
+            <element signature="e#1139#1210#0" expanded="false" />
+            <element signature="e#1248#1323#0" expanded="false" />
+            <element signature="e#1361#1437#0" expanded="false" />
+            <marker date="1474925878664" expanded="true" signature="108:211" ph="..." />
           </folding>
         </state>
       </provider>

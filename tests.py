@@ -8,8 +8,6 @@ import random
 
 edg_test = Edge("edge_test", 34)
 edg_def = Edge()
-nod_test =  Node("node_test", [34, 45, 79])
-nod_def = Node()
 gra_test = Graph("graph_test")
 gra_def = Graph()
 
@@ -38,28 +36,7 @@ class TestEdgeMethods(unittest.TestCase):
         self.assertTrue(type(edges.__repr__()) is str)
 
 
-class TestNodeMethods(unittest.TestCase):
-    """ Teste les differentes fonctions de la classe Node."""
 
-    def test_get_name(self):
-        """ Verification du nom renvoye par la fonction get_name. """
-        self.assertEqual('Sans nom', nod_def.get_name())
-        self.assertEqual('node_test', nod_test.get_name())
-
-    def test_get_id(self):
-        """ Verification que l'indice d'une arete est un nombre entier. """
-        self.assertTrue(type(nod_test.get_id()) is int)
-
-    def test_get_data(self):
-        """ Verification que la valeur par defaut d'une donnee est None et sinon qu'elle est un nombre entier. """
-        self.assertEqual(nod_def.get_data(), None)
-        self.assertTrue(type(nod_test.get_data()) is list)
-
-    def test_repr(self):
-        """ Verification qu'une chaine de caracteres est bien renvoyee a l'affichage par le module print. """
-        nodes = []
-        nodes.append(Node())
-        self.assertTrue(type(nodes.__repr__()) is str)
 
 
 class TestgraphMethods(unittest.TestCase):
@@ -107,5 +84,4 @@ class TestgraphMethods(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    print("hello")
     unittest.main()

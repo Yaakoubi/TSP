@@ -20,11 +20,13 @@ class Graph(object):
 
     def add_node(self, node):
         """Ajoute un noeud au graphe."""
+        assert(type(node) is Node)
         self.__nodes.append(node)
         self.__node_count += 1
 
     def add_edge(self, edge):
         """Ajoute un arrete au graphe."""
+        assert (type(edge) is Edge)
         self.__edges.append(edge)
         self.__edge_count += 1
 
@@ -54,8 +56,8 @@ class Graph(object):
         return self.__edge_count
 
     def add_to_dict (self,edge):
-        """ ajoute un element dans le double dictionnaire
-        si e est un arrete entre noeud 1 et noeud 2
+        """ Ajoute un element dans le double dictionnaire
+        si e est une arete entre noeud 1 et noeud 2
         on ajoute noeud1 -> noeud2 -> e """
         tempo_dict = self.__dict.get(edge.get_data()[0])
         if ( tempo_dict is None ) :
@@ -65,7 +67,7 @@ class Graph(object):
 
 
     def get_edge_id_from_dict(self, indice1,indice2):
-        """retourne l'arrete entre le noeud d'indice 1 et le noeud d'incide 2"""
+        """retourne l'arrete entre le noeud d'indice 1 et le noeud d'indice 2"""
         edge_id =  self.__dict.get(indice1).get(indice2)
         if (edge_id is None ) :
             edge_id = (self.__dict.get(indice2)).get(indice1)
