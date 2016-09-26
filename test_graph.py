@@ -12,10 +12,15 @@ class TestgraphMethods(unittest.TestCase):
         """ Liste de commandes qui sera lancee a chaque test """
         self.gra_def = Graph()
         self.gra_test = Graph("graph_test")
+
         self.nod_test1 = Node("noeud_sans_nom1")
         self.nod_test2 = Node("noeud_sans_nom2")
+
         self.edg_test1 = Edge("arete_sans_nom1", [1,2,3])
         self.edg_test2 = Edge("arete_sans_nom2")
+        self.edg_test3 = Edge("arete_sans_nom3", 3)
+        self.edg_test4 = Edge("arete_sans_nom3", (1, 2, 3))
+        self.edg_test5 = Edge("arete_sans_nom3", (3,"e",1))  # <-- Moyen, faire assertions pour empecher
 
         self.gra_test.add_node(self.nod_test1)
         self.gra_test.add_node(self.nod_test2)
@@ -50,17 +55,42 @@ class TestgraphMethods(unittest.TestCase):
         self.assertEqual(self.gra_test.get_nb_nodes(), len(self.gra_test.get_nodes()))
 
     def test_add_to_dict(self):
-        """ Verifie le bon fonctionnement du dictionnaire """
+        """ Verifie le bon fonctionnement du dictionnaire : la fonction marche quand
+        un edge dispose d'une liste (ou tuple ou str) en donnees et met une erreur sinon"""
+        self.assertEqual(self.gra_test.add_to_dict(self.edg_test1), None)
+        self.assertRaises(TypeError,self.gra_test.add_to_dict, self.edg_test2)
+        self.assertRaises(TypeError,self.gra_test.add_to_dict, self.edg_test3)
+        self.assertEqual(self.gra_test.add_to_dict(self.edg_test4), None)
+        self.assertEqual(self.gra_test.add_to_dict(self.edg_test5), None)
+
+    # A FINIR !!!!
+    def test_get_edge_id_from_dict(self):
+        """ Verifie le bon fonctionnement de la fonction get_edge_id_from_dict """
         self.gra_test.add_to_dict(self.edg_test1)
+        self.gra_test.add_to_dict(self.edg_test4)
+        # self.gra_test.add_to_dict(self.edg_test5)
+
+        self.gra_test.get_edge_id_from_dict(1, 4)
+        self.gra_test.get_edge_id_from_dict(1, 1)
+        self.gra_test.get_edge_id_from_dict(1, -1)
+        self.gra_test.get_edge_id_from_dict(4, 1)
+
+    # A FINIR !!!!!
+    def test_get_edge_from_dict(self):
+        """ Verifie le bon fonctionnement de la fonction get_edge_from_dict """
+        self.gra_test.add_to_dict(self.edg_test1)
+        self.gra_test.add_to_dict(self.edg_test4)
+        # self.gra_test.add_to_dict(self.edg_test5)
+
+        self.gra_test.get_edge_from_dict(1, 4)
+        self.gra_test.get_edge_from_dict(1, 1)
+        self.gra_test.get_edge_from_dict(1, -1)
+        self.gra_test.get_edge_from_dict(4, 1)
 
     def test_repr(self):
         """ Verification qu'une chaine de caracteres est bien renvoyee a l'affichage par le module print. """
         self.assertTrue(type(self.gra_test.__repr__()) is str)
 
-###
-    # def test_plot_graph(self):
-    #     """ Je ne vois pas sur quoi faire un test... """
-###
 
 
 if __name__ == '__main__':
