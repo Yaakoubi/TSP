@@ -58,18 +58,26 @@ class Graph(object):
         si e est un arrete entre noeud 1 et noeud 2
         on ajoute noeud1 -> noeud2 -> e """
         tempo_dict = self.__dict.get(edge.get_data()[0])
-        if ( tempo_dict == None ) :
+        if ( tempo_dict is None ) :
             tempo_dict = {}
-        tempo_dict[edge.get_data()[1]] = edge
+        tempo_dict[edge.get_data()[1]] = edge.get_id()
         self.__dict[edge.get_data()[0]] = tempo_dict
+
+
+    def get_edge_id_from_dict(self, indice1,indice2):
+        """retourne l'arrete entre le noeud d'indice 1 et le noeud d'incide 2"""
+        edge_id =  self.__dict.get(indice1).get(indice2)
+        if (edge_id is None ) :
+            edge_id = (self.__dict[indice2])[indice1]
+        return edge_id
 
 
     def get_edge_from_dict(self, indice1,indice2):
         """retourne l'arrete entre le noeud d'indice 1 et le noeud d'incide 2"""
-        edge =  self.__dict.get(indice1).get(indice2)
-        if (edge == None ) :
-            edge = (self.__dict[indice2])[indice1]
-        return edge
+        edge_id =  self.__dict.get(indice1).get(indice2)
+        if (edge_id is None ) :
+            edge_id = (self.__dict[indice2])[indice1]
+        return self.get_edges()[edge_id]
 
 
     def __repr__(self):
@@ -84,8 +92,9 @@ class Graph(object):
         for edge in self.get_edges():
             res += '\n  ' + repr(edge)
         for node1 , data_node1 in self.__dict.items():
-            for node2, edge in data_node1.items():
-                res += '\n  new :' + repr(edge)
+            for node2, edge_id in data_node1.items():
+                res += '\n  Dict: E ' + repr(edge_id) + \
+                       ' from ' + str(node1) + ' to ' + str(node2)
         return res
 
 
@@ -143,5 +152,5 @@ if __name__ == '__main__':
 
     print ( G.get_edge_from_dict ( 3 , 6 ))
 
-    #print G
+    print G
 
