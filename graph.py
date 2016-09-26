@@ -68,10 +68,15 @@ class Graph(object):
 
     def get_edge_id_from_dict(self, indice1,indice2):
         """retourne l'arrete entre le noeud d'indice 1 et le noeud d'indice 2"""
-        edge_id =  self.__dict.get(indice1).get(indice2)
-        if (edge_id is None ) :
-            edge_id = (self.__dict.get(indice2)).get(indice1)
-        return edge_id
+        data_node1 = self.__dict.get(indice1)
+        if ( data_node1 is None) :
+            return None
+        if ( data_node1.get(indice2) is None ) :
+            data_node2 = self.__dict.get(indice2)
+            return data_node2.get(indice1)
+        else:
+            return ( data_node1.get(indice2) )
+
 
 
     def get_edge_from_dict(self, indice1,indice2):
@@ -152,7 +157,11 @@ if __name__ == '__main__':
             G.add_to_dict(e)
     #G.plot_graph()
 
-    print ( G.get_edge_from_dict ( 3 , 6 ))
 
     print G
+
+    print  G.get_edge_from_dict ( 3 , 6 )
+    print G.get_edge_from_dict( 6, 3 )
+    print G.get_edge_from_dict(6,6)
+
 
