@@ -36,8 +36,6 @@ def read_nodes(header, fd,G):
     returned. The actual number of nodes is in header['DIMENSION'].
     """
 
-    nodes = {}
-
     node_coord_type = header['NODE_COORD_TYPE']
     display_data_type = header['DISPLAY_DATA_TYPE']
     if node_coord_type not in ['TWOD_COORDS', 'THREED_COORDS'] and \
@@ -45,7 +43,7 @@ def read_nodes(header, fd,G):
         # Node coordinates are not given.
         for i in range(header['DIMENSION']):
             G.add_node(Node(name='Noeud {0:d}'.format(i),data=[1000*random()//1,1000*random()//1 ]))
-        return nodes
+        return
 
     dim = header['DIMENSION']
     fd.seek(0)
@@ -63,8 +61,6 @@ def read_nodes(header, fd,G):
 
         if display_data_section:
             data = line.strip().split()
-            nodes[int(data[0]) - 1] = tuple(map(float, data[1:]))
-
             G.add_node(Node('Node',data = map(float, data[1:])))
             k += 1
             if k >= dim:
@@ -73,19 +69,17 @@ def read_nodes(header, fd,G):
 
         elif node_coord_section:
             data = line.strip().split()
-            nodes[int(data[0]) - 1] = tuple(map(float, data[1:]))
-
             G.add_node(Node('Node', data=map(float, data[1:])))
             k += 1
             if k >= dim:
                 break
             continue
 
-    return nodes
+    return
 
 
 
-def read_edges(header, fd):
+def read_edges(header, fd,G):
     "Parse a .tsp file and return the collection of edges as a Python set."
 
     edges = set()
@@ -140,40 +134,40 @@ def read_edges(header, fd):
                 for j in xrange(start, start + n_on_this_line):
                     n_edges += 1
                     if edge_weight_format in ['UPPER_ROW', 'LOWER_COL'] and ( k != i+k+1) :
-                        edge = (k, i+k+1)
+
                         e_data = [ k, i+k+1,int(data[j])]
                         e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k+1), data=e_data)
-                        edges.add(edge)
+
                         G.add_edge(e)
                         G.add_to_dict(e)
                     elif edge_weight_format in ['UPPER_DIAG_ROW', \
                                                 'LOWER_DIAG_COL'] and ( k != k+i) :
-                        edge = (k, i+k)
+
                         e_data = [k, i+k,int(data[j])]
                         e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k), data= e_data)
-                        edges.add(edge)
+
                         G.add_edge(e)
                         G.add_to_dict(e)
                     elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW'] and ( i+k+1 != k) :
-                        edge = (i+k+1, k)
+
                         e_data = [i+k+1, k ,int(data[j])]
                         e = Edge(name='E from {0:d} to {1:d}'.format(i+k+1, 1), data= e_data)
-                        edges.add(edge)
+
                         G.add_edge(e)
                         G.add_to_dict(e)
                     elif edge_weight_format in ['UPPER_DIAG_COL', \
                                                 'LOWER_DIAG_ROW'] and  ( i != k ) :
-                        edge = (i, k)
+
                         e_data = [i,k,int(data[j])]
                         e = Edge(name='E from {0:d} to {1:d}'.format(i,k), data= e_data)
-                        edges.add(edge)
+
                         G.add_edge(e)
                         G.add_to_dict(e)
                     elif edge_weight_format == 'FULL_MATRIX' and ( k < i ) :
-                        edge = (k, i)
+
                         e_data = [k, i,int(data[j])]
                         e = Edge(name='E from {0:d} to {1:d}'.format(k, i), data= e_data)
-                        edges.add(edge)
+
                         G.add_edge(e)
                         G.add_to_dict(e)
                     i += 1
@@ -197,35 +191,6 @@ def read_edges(header, fd):
     return edges
 
 
-def plot_graph(nodes, edges):
-    """
-    Plot the graph represented by `nodes` and `edges` using Matplotlib.
-    Very basic for now.
-    """
-
-    import matplotlib.pyplot as plt
-    from matplotlib.collections import LineCollection
-
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-
-    # Plot nodes.
-    x = [node[0] for node in nodes.values()]
-    y = [node[1] for node in nodes.values()]
-
-    # Plot edges.
-    edge_pos = np.asarray([(nodes[e[0]], nodes[e[1]]) for e in edges])
-    edge_collection = LineCollection(edge_pos, linewidth=1.5, antialiased=True,
-                                     colors=(.8, .8, .8), alpha=.75, zorder=0)
-    ax.add_collection(edge_collection)
-    ax.scatter(x, y, s=35, c='r', antialiased=True, alpha=.75, zorder=1)
-    ax.set_xlim(min(x) - 10, max(x) + 10)
-    ax.set_ylim(min(y) - 10, max(y) + 10)
-
-    plt.show()
-    return
-
-
 if __name__ == "__main__":
 
     import sys
@@ -241,29 +206,11 @@ if __name__ == "__main__":
 
         print "Reading nodes"
         nodes = read_nodes(header, fd,G)
-        print nodes
+
 
         print "Reading edges"
-        edges = read_edges(header, fd)
+        edges = read_edges(header, fd,G)
 
-        #G.set_dictionnary()
-
-        edge_list = []
-        for k in range(dim):
-            edge_list.append([])
-        for edge in edges:
-            if edge_weight_format in ['UPPER_ROW', 'LOWER_COL', \
-                    'UPPER_DIAG_ROW', 'LOWER_DIAG_COL']:
-                edge_list[edge[0]].append(edge[1])
-            else:
-                edge_list[edge[1]].append(edge[0])
-        for k in range(dim):
-            edge_list[k].sort()
-            print k, edge_list[k]
-
-    if len(nodes) > 0:
-        plot_graph(nodes, edges)
-
-    G.plot_graph()
+    #G.plot_graph()
 
     print ( G )

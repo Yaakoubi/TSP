@@ -68,15 +68,15 @@ class Graph(object):
         """retourne l'arrete entre le noeud d'indice 1 et le noeud d'incide 2"""
         edge_id =  self.__dict.get(indice1).get(indice2)
         if (edge_id is None ) :
-            edge_id = (self.__dict[indice2])[indice1]
+            edge_id = (self.__dict.get(indice2)).get(indice1)
         return edge_id
 
 
     def get_edge_from_dict(self, indice1,indice2):
         """retourne l'arrete entre le noeud d'indice 1 et le noeud d'incide 2"""
-        edge_id =  self.__dict.get(indice1).get(indice2)
+        edge_id =  self.get_edge_id_from_dict(indice1,indice2)
         if (edge_id is None ) :
-            edge_id = (self.__dict[indice2])[indice1]
+            return None
         return self.get_edges()[edge_id]
 
 
@@ -148,7 +148,7 @@ if __name__ == '__main__':
             e = Edge(name='E from {0:d} to {1:d}'.format(id_start, id_arrival), data=e_data)
             G.add_edge(e)
             G.add_to_dict(e)
-    G.plot_graph()
+    #G.plot_graph()
 
     print ( G.get_edge_from_dict ( 3 , 6 ))
 
