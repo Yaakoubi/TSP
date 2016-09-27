@@ -31,28 +31,28 @@ class Graph(object):
         self.__edge_count += 1
 
     def get_name(self):
-        """"Donne le nom du graphe."""
+        """" Donne le nom du graphe."""
         return self.__name
 
     def get_nodes(self):
-        """Donne la liste des noeuds du graphe."""
+        """ Donne la liste des noeuds du graphe."""
         return self.__nodes
 
     def get_node(self, indice):
-        """retourne le noeud dont le numero est id"""
+        """ Retourne le noeud dont le numero est id"""
         return self.__nodes[indice]
 
 
     def get_edges(self):
-        """Donne la liste des arretes du graphe."""
+        """ Donne la liste des arretes du graphe."""
         return self.__edges
 
     def get_nb_nodes(self):
-        """Donne le nombre de noeuds du graphe."""
+        """ Donne le nombre de noeuds du graphe."""
         return self.__node_count
 
     def get_nb_edges(self):
-        """Donne le nombre de arretes du graphe."""
+        """ Donne le nombre d'aretes du graphe."""
         return self.__edge_count
 
     def add_to_dict (self,edge):
@@ -67,7 +67,7 @@ class Graph(object):
 
 
     def get_edge_id_from_dict(self, indice1,indice2):
-        """retourne l'arrete entre le noeud d'indice 1 et le noeud d'indice 2"""
+        """ Retourne l'arete entre le noeud d'indice 1 et le noeud d'indice 2"""
         data_node1 = self.__dict.get(indice1)
         if ( data_node1 is None) :
             return None
@@ -80,7 +80,7 @@ class Graph(object):
 
 
     def get_edge_from_dict(self, indice1,indice2):
-        """retourne l'arrete entre le noeud d'indice 1 et le noeud d'incide 2"""
+        """ Retourne l'arete entre le noeud d'indice 1 et le noeud d'indice 2"""
         edge_id =  self.get_edge_id_from_dict(indice1,indice2)
         if (edge_id is None ) :
             return None
@@ -88,7 +88,7 @@ class Graph(object):
 
 
     def __repr__(self):
-        """Redefinie l'ffichage """
+        """Redefinit l'affichage """
         name = self.get_name()
         nb_nodes = self.get_nb_nodes()
         nb_edges = self.get_nb_edges()

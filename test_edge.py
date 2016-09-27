@@ -24,7 +24,7 @@ class TestEdgeMethods(unittest.TestCase):
         self.assertEqual(self.edg_test2.get_id(), 4)
 
     def test_get_data(self):
-        """ Verification que le pointeur de donnees renvoie vers quelquechose. """
+        """ Verification que le pointeur de donnees renvoie vers quelque chose. """
         self.failUnless(self.edg_def.get_data() is None)
         self.failUnless(self.edg_test2.get_data() is not None)
 

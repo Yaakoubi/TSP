@@ -33,17 +33,17 @@ class TestgraphMethods(unittest.TestCase):
 
 
     def test_get_name(self):
-        """ Verification du nom renvoye par la fonction get_name. """
+        """ Verification du nom renvoye par la fonction get_name """
         self.assertEqual('Graphe test', self._gra_test.get_name())
 
 
     def test_add_and_get_node(self):
-        """ Verifie si les noeuds entrees s'ajoutent en fin de liste et s'ils correspondent a un type Node """
+        """ Verifie si les noeuds entres s'ajoutent en fin de liste et s'ils correspondent a un type Node """
         self.failUnless(self._gra_test.get_node(-1) )== self.nod_test2
         self.assertRaises(AssertionError,self._gra_test.add_node, "Ceci n'est pas un noeud")
 
     def test_get_nodes(self):
-        """Verifie si la liste de noeuds renvoie bien des objets de type noeuds et si ceux-ci sont bien ordonnes """
+        """Verifie si la liste contient le bon nombre de noeuds et si ceux-ci sont bien ordonnes """
         self.failUnless(self._gra_test.get_nodes()[-1] == self.nod_test2)
         self.assertEqual(len(self._gra_test.get_nodes()),10)
 
@@ -71,7 +71,7 @@ class TestgraphMethods(unittest.TestCase):
 
 
     def test_repr(self):
-        """ Verification qu'une chaine de caracteres est bien renvoyee a l'affichage par le module print. """
+        """ Verification qu'une chaine de caracteres est bien renvoyee a l'affichage par le module print """
         self.assertTrue(type(self._gra_test.__repr__()) is str)
 
 
