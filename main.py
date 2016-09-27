@@ -27,6 +27,6 @@ if __name__ == "__main__":
 
 
 
-    #G.plot_graph()
+    G.plot_graph()
 
     print ( G )
