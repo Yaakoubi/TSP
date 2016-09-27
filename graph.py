@@ -155,7 +155,7 @@ if __name__ == '__main__':
             e = Edge(name='E from {0:d} to {1:d}'.format(id_start, id_arrival), data=e_data)
             G.add_edge(e)
             G.add_to_dict(e)
-    #G.plot_graph()
+    G.plot_graph()
 
 
     print G
