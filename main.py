@@ -1,9 +1,8 @@
-import numpy as np
-from read_stsp import *
+from read_stsp import read_edges
+from read_stsp import read_header
+from read_stsp import read_nodes
 from graph import Graph
-from node import Node
-from edge import Edge
-from random import random
+
 
 
 if __name__ == "__main__":
