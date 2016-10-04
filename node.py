@@ -27,7 +27,7 @@ class Node(object):
         indice = self.get_id()
         name = self.get_name()
         data = self.get_data()
-        s  = 'Noeud {0!s} (id {1:d})'.format(name, indice)
+        s = 'Noeud {0!s} (id {1:d})'.format(name, indice)
         s += ' (donnees: ' + repr(data) + ')'
         return s
 

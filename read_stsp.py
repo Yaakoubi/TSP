@@ -4,6 +4,7 @@ from node import Node
 from edge import Edge
 from random import random
 
+
 def read_header(fd):
     "Parse a .tsp file and return a dictionary with header data."
 
@@ -28,7 +29,7 @@ def read_header(fd):
     return header
 
 
-def read_nodes(header, fd,G):
+def read_nodes(header, fd, G):
     """
     Parse a .tsp file and return a dictionary of nodes, of the form
     {id:(x,y)}. If node coordinates are not given, an empty dictionary is
@@ -41,7 +42,16 @@ def read_nodes(header, fd,G):
             display_data_type not in ['COORDS_DISPLAY', 'TWOD_DISPLAY']:
         # Node coordinates are not given.
         for i in range(header['DIMENSION']):
-            G.add_node(Node(name='Noeud {0:d}'.format(i),data=[1000*random()//1,1000*random()//1 ]))
+            G.add_node(
+                Node(
+                    name='Noeud {0:d}'.format(i),
+                    data=[
+                        1000 *
+                        random() //
+                        1,
+                        1000 *
+                        random() //
+                        1]))
         return
 
     dim = header['DIMENSION']
@@ -60,7 +70,7 @@ def read_nodes(header, fd,G):
 
         if display_data_section:
             data = line.strip().split()
-            G.add_node(Node('Node',data = map(float, data[1:])))
+            G.add_node(Node('Node', data=map(float, data[1:])))
             k += 1
             if k >= dim:
                 break
@@ -77,8 +87,7 @@ def read_nodes(header, fd,G):
     return
 
 
-
-def read_edges(header, fd,G):
+def read_edges(header, fd, G):
     "Parse a .tsp file and return the collection of edges as a Python set."
 
     edges = set()
@@ -96,14 +105,14 @@ def read_edges(header, fd,G):
         format = edge_weight_format
         if format == 'FULL_MATRIX':
             return dim
-        if format in [ 'LOWER_DIAG_ROW' , 'UPPER_DIAG_COL'] :
-            return n+1
-        if format in [ 'LOWER_DIAG_COL' , 'UPPER_DIAG_ROW'] :
-            return dim-n
-        if format in [ 'LOWER_ROW' , 'UPPER_COL'] :
+        if format in ['LOWER_DIAG_ROW', 'UPPER_DIAG_COL']:
+            return n + 1
+        if format in ['LOWER_DIAG_COL', 'UPPER_DIAG_ROW']:
+            return dim - n
+        if format in ['LOWER_ROW', 'UPPER_COL']:
             return n
-        if format in [ 'LOWER_COL' , 'UPPER_ROW' ] :
-            return dim-n-1
+        if format in ['LOWER_COL', 'UPPER_ROW']:
+            return dim - n - 1
 
     fd.seek(0)
     edge_weight_section = False
@@ -132,40 +141,55 @@ def read_edges(header, fd,G):
                 # Read edges.
                 for j in xrange(start, start + n_on_this_line):
                     n_edges += 1
-                    if edge_weight_format in ['UPPER_ROW', 'LOWER_COL'] and ( k != i+k+1) :
+                    if edge_weight_format in [
+                            'UPPER_ROW', 'LOWER_COL'] and (
+                            k != i + k + 1):
 
-                        e_data = [ k, i+k+1,int(data[j])]
-                        e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k+1), data=e_data)
-
-                        G.add_edge(e)
-                        G.add_to_dict(e)
-                    elif edge_weight_format in ['UPPER_DIAG_ROW', \
-                                                'LOWER_DIAG_COL'] and ( k != k+i) :
-
-                        e_data = [k, i+k,int(data[j])]
-                        e = Edge(name='E from {0:d} to {1:d}'.format(k, i+k), data= e_data)
+                        e_data = [G.get_node(k), G.get_node(
+                            i + k + 1), int(data[j])]
+                        e = Edge(
+                            name='E from {0:d} to {1:d}'.format(
+                                k, i + k + 1), data=e_data)
 
                         G.add_edge(e)
                         G.add_to_dict(e)
-                    elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW'] and ( i+k+1 != k) :
+                    elif edge_weight_format in ['UPPER_DIAG_ROW',
+                                                'LOWER_DIAG_COL'] and (k != k + i):
 
-                        e_data = [i+k+1, k ,int(data[j])]
-                        e = Edge(name='E from {0:d} to {1:d}'.format(i+k+1, 1), data= e_data)
-
-                        G.add_edge(e)
-                        G.add_to_dict(e)
-                    elif edge_weight_format in ['UPPER_DIAG_COL', \
-                                                'LOWER_DIAG_ROW'] and  ( i != k ) :
-
-                        e_data = [i,k,int(data[j])]
-                        e = Edge(name='E from {0:d} to {1:d}'.format(i,k), data= e_data)
+                        e_data = [G.get_node(k), G.get_node(
+                            i + k), int(data[j])]
+                        e = Edge(
+                            name='E from {0:d} to {1:d}'.format(
+                                k, i + k), data=e_data)
 
                         G.add_edge(e)
                         G.add_to_dict(e)
-                    elif edge_weight_format == 'FULL_MATRIX' and ( k < i ) :
+                    elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW'] and (i + k + 1 != k):
 
-                        e_data = [k, i,int(data[j])]
-                        e = Edge(name='E from {0:d} to {1:d}'.format(k, i), data= e_data)
+                        e_data = [G.get_node(i + k + 1),
+                                  G.get_node(k), int(data[j])]
+                        e = Edge(
+                            name='E from {0:d} to {1:d}'.format(
+                                i + k + 1, 1), data=e_data)
+
+                        G.add_edge(e)
+                        G.add_to_dict(e)
+                    elif edge_weight_format in ['UPPER_DIAG_COL',
+                                                'LOWER_DIAG_ROW'] and (i != k):
+
+                        e_data = [G.get_node(i), G.get_node(k), int(data[j])]
+                        e = Edge(
+                            name='E from {0:d} to {1:d}'.format(
+                                i, k), data=e_data)
+
+                        G.add_edge(e)
+                        G.add_to_dict(e)
+                    elif edge_weight_format == 'FULL_MATRIX' and (k < i):
+
+                        e_data = [G.get_node(k), G.get_node(i), int(data[j])]
+                        e = Edge(
+                            name='E from {0:d} to {1:d}'.format(
+                                k, i), data=e_data)
 
                         G.add_edge(e)
                         G.add_to_dict(e)
@@ -195,7 +219,7 @@ if __name__ == "__main__":
     import sys
 
     finstance = sys.argv[1]
-    G = Graph ()
+    G = Graph()
     with open(finstance, "r") as fd:
 
         header = read_header(fd)
@@ -204,12 +228,11 @@ if __name__ == "__main__":
         edge_weight_format = header['EDGE_WEIGHT_FORMAT']
 
         print "Reading nodes"
-        nodes = read_nodes(header, fd,G)
-
+        nodes = read_nodes(header, fd, G)
 
         print "Reading edges"
-        edges = read_edges(header, fd,G)
+        edges = read_edges(header, fd, G)
 
-    G.plot_graph()
+    #G.plot_graph()
 
-    print ( G )
+    #print (G)
