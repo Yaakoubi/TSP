@@ -35,7 +35,7 @@ class TestgraphMethods(unittest.TestCase):
 
     def test_add_and_get_node(self):
         """ Verifie si les noeuds entres s'ajoutent en fin de liste et s'ils correspondent a un type Node """
-        self.failUnless(self._gra_test.get_node(-1)) == self.nod_test2
+        self.failUnless(self._gra_test.get_node(-1) == self.nod_test2)
         self.assertRaises(
             AssertionError,
             self._gra_test.add_node,

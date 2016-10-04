@@ -146,9 +146,9 @@ if __name__ == '__main__':
                 data=e_data)
             G.add_edge(e)
             G.add_to_dict(e)
-    #G.plot_graph()
+    # G.plot_graph()
 
-    #print G
+    # print G
 
     print G.get_edge_from_dict(G.get_node(3), G.get_node(6))
     print G.get_edge_from_dict(G.get_node(6), G.get_node(3))
