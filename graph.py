@@ -27,9 +27,12 @@ class Graph(object):
 
     def add_edge(self, edge):
         """Ajoute un arrete au graphe."""
-        assert (isinstance(edge, Edge))
-        self.__edges.append(edge)
-        self.__edge_count += 1
+        if isinstance(
+            edge, Edge) and (
+            edge.weight is not None) and (
+                edge.weight > 0):
+            self.__edges.append(edge)
+            self.__edge_count += 1
 
     def get_name(self):
         """" Donne le nom du graphe."""
@@ -83,10 +86,10 @@ class Graph(object):
         nb_edges = self.get_nb_edges()
         res = 'Graphe {0!s} comprenant {1:d} noeuds et {2:d} arretes'\
             .format(name, nb_nodes, nb_edges)
-        for node1, data_node1 in self.__dict.items():
-            for node2, edge in data_node1.items():
-                res += '\n  Dict: ' + \
-                    repr(node1) + ' --> ' + repr(node2) + ' === ' + repr(edge)
+        for node in self.get_nodes():
+            res += '\n' + repr(node)
+            for edge in self.get_edges():
+                res += '\n' + repr(edge)
         return res
 
     def plot_graph(self):

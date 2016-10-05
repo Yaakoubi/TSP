@@ -48,11 +48,12 @@ class TestgraphMethods(unittest.TestCase):
 
     def test_add_and_get_edges(self):
         """ Verifie si les aretes entrees s'ajoutent en fin de liste et si elles correspondent a un type Edge """
+
         self.failUnless(self._gra_test.get_edges()[-1] == self._edg_test2)
         self.assertRaises(
             AssertionError,
-            self._gra_test.add_edge,
-            "Ceci n'est pas une arete")
+            self._gra_test.add_edge(
+                "Ceci n'est pas une arete"))
 
     def test_get_nb_edges_and_nodes(self):
         """ Verifie si le nombre de noeuds entres correspond bien a celui retourne par les fonctions """
