@@ -4,6 +4,13 @@ from read_stsp import read_nodes
 from graph import Graph
 
 
+def find_parent(edge_start):
+    if parent[edge_start] != edge_start:
+        parent[edge_start] = find_parent(parent[edge_start])
+    return parent[edge_start]
+
+
+
 if __name__ == "__main__":
 
     import sys
@@ -27,8 +34,12 @@ if __name__ == "__main__":
     #print (G)
 
     G_arb = Graph()
+    parent = {}
+    arborescence = []
     for node in G.get_nodes():
         G_arb.add_node(node)
+        parent[node.get_id()] = node.get_id()
+
     list_edges = G.get_edges()
     ordered_weight_list = []
     for edge in list_edges:
@@ -36,101 +47,25 @@ if __name__ == "__main__":
         ordered_weight_list.append((weight,edge))
     ordered_weight_list.sort()
 
-    # i = -1
-    # connex_graph = []
-    # arborescence = []
-    # for weight,edge in ordered_weight_list:
-    #     if (edge.start or edge.end) not in connex_graph:
-    #         connex_graph.append(edge.start)
-    #         connex_graph.append(edge.end)
-    #         arborescence.append(edge)
-
-    id_cg = 0
-    dico = {}
-    dico["connex_graph", str(id_cg)] = []
-    arborescence = []
-    num_elt = 0
-    connexion = []
-
-    for weight,edge in ordered_weight_list:
-        if num_elt == 0:
-            dico["connex_graph", str(id_cg)].append(edge.start)
-            dico["connex_graph", str(id_cg)].append(edge.end)
+    first_edge = True
+    for weight, edge in ordered_weight_list:
+        # print parent[edge.end.get_id()]
+        if first_edge:
+            if edge.end.get_id() < edge.start.get_id() :
+                parent[edge.start.get_id()] = edge.end.get_id()
+            else:
+                parent[edge.end.get_id()] = edge.start.get_id()
             arborescence.append(edge)
-            num_elt += 1
+            first_edge = False
             continue
-
-        i, k = 0, 0
-        # print i,k
-        cycle = False
-        while i <= id_cg:
-            if (edge.start and edge.end) in dico["connex_graph", str(i)]:
-                cycle = True
-                break
-            elif (edge.start or edge.end) in dico["connex_graph", str(i)]:
-                k = i+1
-                while k <= id_cg:
-                    print "hello"
-                    if (edge.start or edge.end) in dico["connex_graph", str(k)]:
-                        print "hello2"
-                        if ( (i, k) or (k, i) ) in connexion:
-                            cycle = True
-                            break
-                        connexion.append((i,k))
-                    k += 1
-                if not cycle:
-                    dico["connex_graph", str(i)].append(edge.start)
-                    dico["connex_graph", str(i)].append(edge.end)
-                    arborescence.append(edge)
-                    break
-            # elif (not cycle and i == id_cg) :
-            #     id_cg += 1
-            #     dico["connex_graph", str(id_cg)] = []
-            #     dico["connex_graph", str(id_cg)].append(edge.start)
-            #     dico["connex_graph", str(id_cg)].append(edge.end)
-            #     arborescence.append(edge)
-            i += 1
-
-        # if cycle == False :
-        #     arborescence.append(edge)
-
-
-
-            #
-            # if (edge.start or edge.end) not in dico["connex_graph", str(i)]:
-            #     dico["connex_graph", str(i)].append(edge.start)
-            #     dico["connex_graph", str(i)].append(edge.end)
-            #     if id_cg = 0:
-            #         arborescence.append(edge)
-
-    # print arborescence
-
-    # from copy import copy
-    # G_arb = copy(G)
-    # i = -1
-    # for elt in G_arb.get_edges():
-    #     i += 1
-    #     if elt not in arborescence:
-    #         print "ok!"
-    #         del G_arb.get_edge(i)
-    #
-
-    # G_arb.plot_graph()
-
+        if find_parent(edge.start.get_id()) != find_parent(edge.end.get_id()):
+            if find_parent(edge.start.get_id()) < find_parent(edge.end.get_id()):
+                parent[find_parent(edge.end.get_id())] = edge.start.get_id()
+            else:
+                parent[find_parent(edge.start.get_id())] = edge.end.get_id()
+            arborescence.append(edge)
 
     for edge in arborescence :
         G_arb.add_edge(edge)
 
-    print G_arb.get_edges()
-    print G_arb.get_nodes()
     G_arb.plot_graph()
-
-
-    # for elt in arborescence:
-    #     G_arb.add_edge(elt)
-    # G_arb.plot_graph()
-    # print G_arb
-
-    # # i = 0
-    # while i<len(arborescence)
-    #     if G_arb =
