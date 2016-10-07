@@ -26,7 +26,7 @@ class Graph(object):
         self.__node_count += 1
 
     def add_edge(self, edge):
-        """Ajoute un arrete au graphe."""
+        """Ajoute une arete au graphe."""
         if isinstance(
             edge, Edge) and (
             edge.weight is not None) and (
@@ -47,7 +47,7 @@ class Graph(object):
         return self.__nodes[indice]
 
     def get_edges(self):
-        """ Donne la liste des arretes du graphe."""
+        """ Donne la liste des aretes du graphe."""
         return self.__edges
 
     def get_nb_nodes(self):
