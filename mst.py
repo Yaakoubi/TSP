@@ -10,6 +10,7 @@ class Mst(Graph):
             self.set_mst(original_graph)
 
     def set_mst(self, original_graph=None):
+        """sets the tree using the Kruskal algorithm """
         if original_graph is None:
             return 0
 

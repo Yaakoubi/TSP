@@ -27,6 +27,6 @@ if __name__ == "__main__":
     # G.plot_graph()
     # print (G)
 
-    G_arb = Mst(original_graph=G)
+    kruskal_tree = Mst(original_graph=G)
 
-    G_arb.plot_graph()
+    kruskal_tree.plot_graph()
