@@ -1,3 +1,5 @@
+#!/bin/bash
+
 python test_algo_kruskal.py instances/instances/stsp/bayg29.tsp 
 python test_algo_kruskal.py instances/instances/stsp/dantzig42.tsp 
 python test_algo_kruskal.py instances/instances/stsp/gr21.tsp 

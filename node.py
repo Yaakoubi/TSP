@@ -13,15 +13,15 @@ class Node(object):
         self.__id = Node.__node_count
 
     def get_name(self):
-        "Donne le nom du noeud."
+        """"Donne le nom du noeud."""
         return self.__name
 
     def get_id(self):
-        "Donne le numero d'identification du noeud."
+        """Donne le numero d'identification du noeud."""
         return self.__id
 
     def get_data(self):
-        "Donne les donnees contenues dans le noeud."
+        """Donne les donnees contenues dans le noeud."""
         return self.__data
 
     def __repr__(self):
@@ -34,23 +34,22 @@ class Node(object):
 
     @property
     def father(self):
-        return self.__father
+        if self.__father is not None:
+            return self.__father
+        return self
 
     # This allows the start node to be set
     @father.setter
     def father(self, father):
-        if father is not None :
+        if father is not None:
             self.__father = father
 
     @property
     def ancestor(self):
         if self.__father is None:
             return self
-        else :
+        else:
             return self.__father.ancestor
-
-
-
 
 
 if __name__ == '__main__':
@@ -59,5 +58,14 @@ if __name__ == '__main__':
     for k in range(5):
         nodes.append(Node())
 
+    nodes[1].father = nodes[0]
+    nodes[2].father = nodes[1]
+    nodes[3].father = nodes[1]
+
     for node in nodes:
-        print node
+        print repr(node) + "  \'s father is :  " + repr(node.father)
+
+    print '\n'
+
+    for node in nodes:
+        print repr(node) + "  \'s ancestor is :  " + repr(node.ancestor)

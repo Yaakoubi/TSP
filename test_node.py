@@ -28,8 +28,6 @@ class TestNodeMethods(unittest.TestCase):
         self.failUnless(self.nod_def.get_data() is None)
         self.failUnless(self.nod_test2.get_data() is not None)
 
-
-
     def test_get_father(self):
         """ Verification de ce qu'il y a dans l'attribut father"""
         self.failUnless(self.nod_def.get_data() is None)

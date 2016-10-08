@@ -51,3 +51,32 @@ faudrait qu'on en discute et qu'on la mette potentiellement dans la partie diffi
 
 fonction get_edge_id_from_dict() ==> test avec != indices (les mêmes, qui n'existent pas, etc.)
 
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2 : 8 octobre :
+
+J'ai verifié le poids des arbres et j'ai comparé avec les valeurs du dernier push que t'as fait, ce sont les mêmes
+En gros, j'ai réarrangé un peu les choses, et puis j'ai pas utilisé les ID ( par définition, un arrête n'existe qu'entre start et arrival, tel que id_start < id_arrival, du coup, on peu ne pas comparer les ID, d'ailleurs faut éviter le plus possible de les utiliser )
+aussi, j'ai fait mst comme une subclasse de Graph, héritage et tout ça
+et j'ai fait father dans la classe node ( Maxime en a parlé l'autre fois à un certain moment, ça change pas grande chose, mais boff)
+
+j'ai nommé le nouveau script à ScriptKrusal.sh
+faut faire :
+chmod +x ScriptKruskal.sh
+( juste la première fois je crois, et à partir de là, tu fais :
+./ScriptKrusal.sh
+et ça lance le tout )
+voilàà voilàà :)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
