@@ -28,6 +28,13 @@ class TestNodeMethods(unittest.TestCase):
         self.failUnless(self.nod_def.get_data() is None)
         self.failUnless(self.nod_test2.get_data() is not None)
 
+
+
+    def test_get_father(self):
+        """ Verification de ce qu'il y a dans l'attribut father"""
+        self.failUnless(self.nod_def.get_data() is None)
+        self.failUnless(self.nod_test2.get_data() is not None)
+
     def test_repr(self):
         """ Verification qu'une chaine de caracteres est bien renvoyee a l'affichage par le module print """
         self.assertTrue(isinstance(self.nod_def.__repr__(), str))

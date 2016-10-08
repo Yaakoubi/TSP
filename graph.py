@@ -142,14 +142,14 @@ if __name__ == '__main__':
                 i):  # pas de redondance , donc nb_edges = nb_nodes * (nb_nodes-1) /2
             start = G.get_node(i)
             arrival = G.get_node(j)
-            # print  id_start , id_arrival , '\n'
+            # print  start , arrival , '\n'
             e_data = [start, arrival, 200 * rand.random() // 1]
             e = Edge(
                 name='Test Edge',
                 data=e_data)
             G.add_edge(e)
             G.add_to_dict(e)
-    # G.plot_graph()
+    G.plot_graph()
 
     # print G
 

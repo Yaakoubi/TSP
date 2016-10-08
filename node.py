@@ -4,6 +4,7 @@ class Node(object):
     """
 
     __node_count = -1   # Compteur global partage par toutes les instances.
+    __father = None
 
     def __init__(self, name='Sans nom', data=None):
         self.__name = name
@@ -30,6 +31,26 @@ class Node(object):
         s = 'Noeud {0!s} (id {1:d})'.format(name, indice)
         s += ' (donnees: ' + repr(data) + ')'
         return s
+
+    @property
+    def father(self):
+        return self.__father
+
+    # This allows the start node to be set
+    @father.setter
+    def father(self, father):
+        if father is not None :
+            self.__father = father
+
+    @property
+    def ancestor(self):
+        if self.__father is None:
+            return self
+        else :
+            return self.__father.ancestor
+
+
+
 
 
 if __name__ == '__main__':
