@@ -11,9 +11,8 @@ class Mst(Graph):
 
     def set_mst(self, original_graph=None):
         """sets the tree using the Kruskal algorithm """
-        if original_graph is None:
-            return 0
 
+        assert (isinstance(original_graph, Graph))
         for node in original_graph.get_nodes():
             self.add_node(node)
 

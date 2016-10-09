@@ -21,7 +21,7 @@ class TestNodeMethods(unittest.TestCase):
     def test_get_id(self):
         """ Verification que l'indice d'une arete est un nombre entier """
         self.assertTrue(isinstance(self.nod_test1.get_id(), int))
-        self.assertEqual(self.nod_test2.get_id(), 4)
+        self.assertEqual(self.nod_test2.get_id(), 7)
 
     def test_get_data(self):
         """ Verification que le pointeur de donnees renvoie vers quelque chose """
