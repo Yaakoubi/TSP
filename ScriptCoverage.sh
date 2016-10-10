@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rm -r htmlcov/
 coverage erase
 coverage run -a test_edge.py
