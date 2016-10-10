@@ -14,7 +14,7 @@ if __name__ == "__main__":
     with open(finstance, "r") as fd:
 
         header = read_header(fd)
-        print 'Header: ', header
+        # print 'Header: ', header
         dim = header['DIMENSION']
         edge_weight_format = header['EDGE_WEIGHT_FORMAT']
 
@@ -30,3 +30,5 @@ if __name__ == "__main__":
     kruskal_tree = Mst(original_graph=G)
 
     #kruskal_tree.plot_graph()
+
+    print 'Poids total du graphe : ' + header.__getitem__('NAME') + '  = ' + str(kruskal_tree.weight) +'\n'

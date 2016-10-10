@@ -6,14 +6,14 @@ from node import Node
 class TestEdgeMethods(unittest.TestCase):
     """ Teste les differentes fonctions de la classe Edge."""
 
+    n1 = Node(name="test1")
+    n2 = Node(name="test2")
+    n3 = Node(name="test3")
+
     def setUp(self):
         """ Liste de commandes qui sera lancee a chaque test """
-        n1 = Node(name="test1")
-        n2 = Node(name="test2")
-        n3 = Node(name="test3")
-
-        self.edg_test1 = Edge("edge_test1", [n1, n2, 79])
-        self.edg_test2 = Edge(data=[n2, n3], name="edge_test2")
+        self.edg_test1 = Edge("edge_test1", [self.n1, self.n2, 79])
+        self.edg_test2 = Edge(data=[self.n2, self.n3], name="edge_test2")
         self.edg_test3 = Edge("edge_test2")
         self.edg_def = Edge()
 
@@ -31,6 +31,7 @@ class TestEdgeMethods(unittest.TestCase):
     def test_get_start(self):
         """ Verification que le pointeur de donnees renvoie vers quelque chose. """
         self.failUnless(self.edg_def.start is None)
+        self.failUnless(self.edg_test3.start is None)
         self.failUnless(self.edg_test2.start is not None)
 
     def test_get_end(self):
@@ -51,15 +52,20 @@ class TestEdgeMethods(unittest.TestCase):
         self.failUnless(self.edg_test2.start is not None)
 
     def test_set_end(self):
-        """ Verification que le pointeur de donnees renvoie vers quelque chose. """
+        """ Verification que le noeud d'arrivee est bien affecte"""
+        self.edg_def.end = self.n1
+        self.edg_test2.end = self.n2
+        self.failUnless( self.edg_def.end == self.n1 )
+        self.failUnless( self.edg_test2.end == self.n2 )
+        self.failUnless( self.edg_test3.end is None )
+
+
+    def test_set_weight(self):
+        """ Verification que le poids est bien affecte"""
         self.edg_def.weight = 5
         self.edg_test2.weight = 7
         self.failUnless(self.edg_def.weight == 5)
         self.failUnless(self.edg_test2.weight == 7)
-
-    def test_set_weight(self):
-        """ Verification qu'une chaine de caracteres est bien renvoyee a l'affichage par le module print. """
-        self.assertTrue(isinstance(self.edg_def.__repr__(), str))
 
 if __name__ == '__main__':
     unittest.main()

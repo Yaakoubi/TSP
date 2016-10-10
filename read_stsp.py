@@ -164,19 +164,17 @@ def read_edges(header, fd, G):
 
                         G.add_edge(e)
                         G.add_to_dict(e)
-                    elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW'] and (i + k + 1 != k):
-
-                        e_data = [G.get_node(i + k + 1),
+                    elif edge_weight_format in ['UPPER_COL', 'LOWER_ROW'] and (i != k  ):
+                        e_data = [G.get_node(i),
                                   G.get_node(k), int(data[j])]
                         e = Edge(
                             name='E from {0:d} to {1:d}'.format(
-                                i + k + 1, 1), data=e_data)
+                                i , k), data=e_data)
 
                         G.add_edge(e)
                         G.add_to_dict(e)
                     elif edge_weight_format in ['UPPER_DIAG_COL',
                                                 'LOWER_DIAG_ROW'] and (i != k):
-
                         e_data = [G.get_node(i), G.get_node(k), int(data[j])]
                         e = Edge(
                             name='E from {0:d} to {1:d}'.format(
@@ -235,4 +233,4 @@ if __name__ == "__main__":
 
     # G.plot_graph()
 
-    #print (G)
+    # print (G)
