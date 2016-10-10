@@ -29,4 +29,4 @@ if __name__ == "__main__":
 
     kruskal_tree = Mst(original_graph=G)
 
-    kruskal_tree.plot_graph()
+    #kruskal_tree.plot_graph()
