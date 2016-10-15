@@ -15,6 +15,7 @@ class TestEdgeMethods(unittest.TestCase):
         self.edg_test1 = Edge("edge_test1", [self.n1, self.n2, 79])
         self.edg_test2 = Edge(data=[self.n2, self.n3], name="edge_test2")
         self.edg_test3 = Edge("edge_test2")
+        self.edg_test4 = Edge("edge_test4", [])
         self.edg_def = Edge()
 
     def test_get_name(self):
@@ -32,12 +33,14 @@ class TestEdgeMethods(unittest.TestCase):
         """ Verification que le pointeur de donnees renvoie vers quelque chose. """
         self.failUnless(self.edg_def.start is None)
         self.failUnless(self.edg_test3.start is None)
+        self.failUnless(self.edg_test4.start is None)
         self.failUnless(self.edg_test2.start is not None)
 
     def test_get_end(self):
         """ Verification que le pointeur de donnees renvoie vers quelque chose. """
         self.failUnless(self.edg_def.end is None)
         self.failUnless(self.edg_test2.end is not None)
+        self.failUnless(self.edg_test4.end is None)
 
     def test_get_weight(self):
         """ Verification que le pointeur de donnees renvoie vers quelque chose. """
@@ -55,9 +58,11 @@ class TestEdgeMethods(unittest.TestCase):
         """ Verification que le noeud d'arrivee est bien affecte"""
         self.edg_def.end = self.n1
         self.edg_test2.end = self.n2
+        self.edg_test4.end = []
         self.failUnless( self.edg_def.end == self.n1 )
         self.failUnless( self.edg_test2.end == self.n2 )
         self.failUnless( self.edg_test3.end is None )
+        self.failUnless( self.edg_test4.end is None )
 
 
     def test_set_weight(self):
