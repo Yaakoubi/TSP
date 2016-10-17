@@ -32,33 +32,32 @@ class Mst(Graph):
             original_graph.get_nodes())
         for weight, edge in ordered_weight_list:
             # print (edge)
-            if nb_nodes_mst < nb_nodes_original_graph:
-                if edge.start.ancestor != edge.end.ancestor:
-                    # print ('start anc :' +
-                    #       str(edge.start.ancestor.get_id()) +
-                    #       ' end anc : ' +
-                    #       str(edge.end.ancestor.get_id()))
+            if nb_nodes_mst < nb_nodes_original_graph and edge.start.ancestor != edge.end.ancestor:
+                # print ('start anc :' +
+                #       str(edge.start.ancestor.get_id()) +
+                #       ' end anc : ' +
+                #       str(edge.end.ancestor.get_id()))
 
-                    if edge.start.ancestor == edge.start:
-                        edge.start.father = edge.end
-                        self.add_edge(edge)
-                        nb_nodes_mst += 1
-                        self.__total_weight += weight
-                    elif edge.end.ancestor == edge.end:
-                        edge.end.father = edge.start
-                        self.add_edge(edge)
-                        nb_nodes_mst += 1
-                        self.__total_weight += weight
-                    else:
-                        edge.start.ancestor.father = edge.end
-                        self.add_edge(edge)
-                        nb_nodes_mst += 1
-                        self.__total_weight += weight
+                if edge.start.ancestor == edge.start:
+                    edge.start.father = edge.end
+                    self.add_edge(edge)
+                    nb_nodes_mst += 1
+                    self.__total_weight += weight
+                elif edge.end.ancestor == edge.end:
+                    edge.end.father = edge.start
+                    self.add_edge(edge)
+                    nb_nodes_mst += 1
+                    self.__total_weight += weight
+                else:
+                    edge.start.ancestor.father = edge.end
+                    self.add_edge(edge)
+                    nb_nodes_mst += 1
+                    self.__total_weight += weight
 
-                        # if edge.start.ancestor < edge.end.ancestor
-                        #    edge.end.father.father = edge.start
-                        # else:
-                        #    edge.start.ancestor.father = edge.end.ancestor
+                    # if edge.start.ancestor < edge.end.ancestor
+                    #    edge.end.father.father = edge.start
+                    # else:
+                    #    edge.start.ancestor.father = edge.end.ancestor
             if nb_nodes_mst == nb_nodes_original_graph:
                 print "OK, tous les noeuds sont pris!!"
                 break
