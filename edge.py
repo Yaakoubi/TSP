@@ -7,7 +7,7 @@ class Edge(object):
 
     def __init__(self, name='Sans nom', data=None):
         self.__name = name
-        if (data is not None):
+        if data is not None:
             self.__data = data
         else:
             self.__data = [None, None, None]
@@ -15,20 +15,20 @@ class Edge(object):
         self.__id = Edge.__edge_count
 
     def get_name(self):
-        "Donne le nom de l'arrete."
+        """"Donne le nom de l'arrete."""
         return self.__name
 
     def get_id(self):
-        "Donne le numero d'identification de l'arrete."
+        """Donne le numero d'identification de l'arrete."""
         return self.__id
 
     def get_data(self):
-        "Donne les donnees contenues dans l'arrete."
+        """Donne les donnees contenues dans l'arrete."""
         return self.__data
 
     @property
     def start(self):
-        if (self.__data is not None):
+        if self.__data is not None:
             try:
                 return self.__data[0]
             except IndexError:
@@ -45,7 +45,7 @@ class Edge(object):
 
     @property
     def end(self):
-        if (self.__data is not None):
+        if self.__data is not None:
             try:
                 return self.__data[1]
             except IndexError:
@@ -62,7 +62,7 @@ class Edge(object):
 
     @property
     def weight(self):
-        if (self.__data is not None):
+        if self.__data is not None:
             try:
                 return self.__data[2]
             except IndexError:

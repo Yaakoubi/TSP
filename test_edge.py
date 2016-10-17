@@ -59,11 +59,10 @@ class TestEdgeMethods(unittest.TestCase):
         self.edg_def.end = self.n1
         self.edg_test2.end = self.n2
         self.edg_test4.end = []
-        self.failUnless( self.edg_def.end == self.n1 )
-        self.failUnless( self.edg_test2.end == self.n2 )
-        self.failUnless( self.edg_test3.end is None )
-        self.failUnless( self.edg_test4.end is None )
-
+        self.failUnless(self.edg_def.end == self.n1)
+        self.failUnless(self.edg_test2.end == self.n2)
+        self.failUnless(self.edg_test3.end is None)
+        self.failUnless(self.edg_test4.end is None)
 
     def test_set_weight(self):
         """ Verification que le poids est bien affecte"""

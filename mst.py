@@ -28,7 +28,8 @@ class Mst(Graph):
             ordered_weight_list.append((weight, edge))
         ordered_weight_list.sort()
 
-        nb_nodes_mst, nb_nodes_original_graph = 1, len(original_graph.get_nodes())
+        nb_nodes_mst, nb_nodes_original_graph = 1, len(
+            original_graph.get_nodes())
         for weight, edge in ordered_weight_list:
             # print (edge)
             if nb_nodes_mst < nb_nodes_original_graph:
@@ -61,4 +62,3 @@ class Mst(Graph):
             if nb_nodes_mst == nb_nodes_original_graph:
                 print "OK, tous les noeuds sont pris!!"
                 break
-

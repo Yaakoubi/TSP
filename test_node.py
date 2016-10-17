@@ -22,7 +22,7 @@ class TestNodeMethods(unittest.TestCase):
     def test_get_id(self):
         """ Verification que l'indice d'une arete est un nombre entier """
         self.assertTrue(isinstance(self.nod_test1.get_id(), int))
-        #self.assertEqual(self.nod_test2.get_id(), 7)
+        # self.assertEqual(self.nod_test2.get_id(), 7)
 
     def test_get_data(self):
         """ Verification que le pointeur de donnees renvoie vers quelque chose """
@@ -38,7 +38,6 @@ class TestNodeMethods(unittest.TestCase):
         """ Verification de ce qu'il y a dans l'attribut father"""
         self.failUnless(self.nod_def.ancestor == self.nod_def)
         self.failUnless(self.nod_test2.father == self.nod_test1)
-
 
     def test_repr(self):
         """ Verification qu'une chaine de caracteres est bien renvoyee a l'affichage par le module print """
