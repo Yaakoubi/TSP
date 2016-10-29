@@ -29,6 +29,6 @@ if __name__ == "__main__":
 
     kruskal_tree = Mst(original_graph=G)
 
-    # kruskal_tree.plot_graph()
+    kruskal_tree.plot_graph()
 
     print 'Poids total du graphe : ' + header.__getitem__('NAME') + '  = ' + str(kruskal_tree.weight) + '\n'

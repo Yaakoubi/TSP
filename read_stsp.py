@@ -175,6 +175,7 @@ def read_edges(local_header, local_fd, graph):
                         graph.add_to_dict(e)
                     elif edge_weight_format in ['UPPER_DIAG_COL',
                                                 'LOWER_DIAG_ROW'] and (i != k):
+
                         e_data = [
                             graph.get_node(i), graph.get_node(k), int(
                                 data[j])]
@@ -235,6 +236,4 @@ if __name__ == "__main__":
         print "Reading edges"
         edges = read_edges(header, fd, G)
 
-    # G.plot_graph()
-
-    # print (G)
+    G.plot_graph()

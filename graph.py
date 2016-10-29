@@ -18,6 +18,7 @@ class Graph(object):
         self.__nodes = []   # Attribut prive.
         self.__edges = []  # Attribut prive.
         self.__dict = {}
+        self.__total_weight = 0
 
     def add_node(self, node):
         """Ajoute un noeud au graphe."""
@@ -28,9 +29,8 @@ class Graph(object):
     def add_edge(self, edge):
         """Ajoute une arete au graphe."""
         if isinstance(
-            edge, Edge) and (
-            edge.weight is not None) and (
-                edge.weight > 0):
+                edge, Edge) and (
+                edge.weight is not None) and (edge.start != edge.end):
             self.__edges.append(edge)
             self.__edge_count += 1
 
@@ -57,6 +57,15 @@ class Graph(object):
     def get_nb_edges(self):
         """ Donne le nombre d'aretes du graphe."""
         return self.__edge_count
+
+    @property
+    def weight(self):
+        return self.__total_weight
+
+    def add_weight(self, weight):
+        """Ajoute un poids au graphe."""
+        if (weight is not None) and (type(weight) in [int, float, long]):
+            self.__total_weight += weight
 
     def add_to_dict(self, edge):
         """ Ajoute un element dans le double dictionnaire
@@ -88,8 +97,8 @@ class Graph(object):
             .format(name, nb_nodes, nb_edges)
         for node in self.get_nodes():
             res += '\n' + repr(node)
-            for edge in self.get_edges():
-                res += '\n' + repr(edge)
+        for edge in self.get_edges():
+            res += '\n' + repr(edge)
         return res
 
     def plot_graph(self):
