@@ -64,7 +64,8 @@ class Graph(object):
 
     def add_weight(self, weight):
         """Ajoute un poids au graphe."""
-        if (weight is not None) and (type(weight) in [int, float, long]):
+        if (weight is not None) and (isinstance(
+                weight, int) or isinstance(weight, float)):
             self.__total_weight += weight
 
     def add_to_dict(self, edge):

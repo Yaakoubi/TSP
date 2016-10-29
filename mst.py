@@ -26,10 +26,10 @@ class Mst(Graph):
                 #       str(edge.start.ancestor.get_id()) +
                 #       ' end anc : ' +
                 #       str(edge.end.ancestor.get_id()))
-                    edge.end.ancestor.father = edge.start.ancestor
-                    nb_nodes_mst += 1
-                    self.add_edge(edge)
-                    self.add_weight(edge.weight)
+                edge.end.ancestor.father = edge.start.ancestor
+                nb_nodes_mst += 1
+                self.add_edge(edge)
+                self.add_weight(edge.weight)
             elif nb_nodes_mst == nb_nodes_original_graph:
                 print "OK, tous les noeuds sont pris!!"
                 break
