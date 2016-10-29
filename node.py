@@ -46,6 +46,7 @@ class Node(object):
 
     @property
     def ancestor(self):
+        """recursive function to get node's ancestor"""
         p1 = self
         p2 = self.father
         while p2 != p1:

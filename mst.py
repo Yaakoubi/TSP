@@ -26,7 +26,6 @@ class Mst(Graph):
                 #       str(edge.start.ancestor.get_id()) +
                 #       ' end anc : ' +
                 #       str(edge.end.ancestor.get_id()))
-                if edge.start.ancestor != edge.end.ancestor:
                     edge.end.ancestor.father = edge.start.ancestor
                     nb_nodes_mst += 1
                     self.add_edge(edge)
