@@ -52,7 +52,7 @@ class Edge(object):
                 return None
         return None
 
-    # This allows the start node to be set
+    # This allows the end node to be set
     @end.setter
     def end(self, end):
         try:
