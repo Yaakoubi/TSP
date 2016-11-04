@@ -11,6 +11,8 @@ class Node(object):
         Node.__node_count += 1
         self.__id = Node.__node_count
         self.__father = None
+        self.__rank = 0
+        self.__sons = []
 
     def get_name(self):
         """"Donne le nom du noeud."""
@@ -23,6 +25,12 @@ class Node(object):
     def get_data(self):
         """Donne les donnees contenues dans le noeud."""
         return self.__data
+
+    def set_son(self, son):
+        self.__sons.append(son)
+
+    def get_sons(self):
+        return self.__sons
 
     def __repr__(self):
         indice = self.get_id()
@@ -53,6 +61,17 @@ class Node(object):
             p1 = p2
             p2 = p1.father
         return p1
+
+
+    @property
+    def rank(self):
+        return self.__rank
+
+    # This allows the rank node to be set
+    @rank.setter
+    def rank(self, rank):
+        if rank is not 0:
+            self.__rank = rank
 
 
 if __name__ == '__main__':

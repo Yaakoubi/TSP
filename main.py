@@ -3,6 +3,7 @@ from read_stsp import read_header
 from read_stsp import read_nodes
 
 from mst import Mst
+from mst import upgrade_rank
 
 
 if __name__ == "__main__":

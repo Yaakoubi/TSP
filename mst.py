@@ -1,8 +1,9 @@
 from graph import Graph
+# from binary_tree import BinaryTree
 
 
 class Mst(Graph):
-    """ This is a special king of graph made to perform Kruskal Algorithm"""
+    """ This is a special kind of graph made to perform Kruskal Algorithm"""
 
     def __init__(self, name='Sans nom', original_graph=None):
         Graph.__init__(self, name)
@@ -18,18 +19,45 @@ class Mst(Graph):
         for node in original_graph.get_nodes():
             self.add_node(node)
         list_edges = sorted(original_graph.get_edges(), key=lambda i: i.weight)
-        nb_nodes_mst, nb_nodes_original_graph = 1, original_graph.get_nb_edges()
+        nb_nodes_mst, nb_nodes_original_graph = 1, original_graph.get_nb_nodes()
+
+
         for edge in list_edges:
-            # print (edge)
             if nb_nodes_mst < nb_nodes_original_graph and edge.start.ancestor != edge.end.ancestor:
                 # print ('start anc :' +
                 #       str(edge.start.ancestor.get_id()) +
                 #       ' end anc : ' +
                 #       str(edge.end.ancestor.get_id()))
-                edge.end.ancestor.father = edge.start.ancestor
+
+                if edge.end.ancestor.rank > edge.start.ancestor.rank:
+                    edge.end.ancestor.set_son(edge.start.ancestor)
+                    edge.start.ancestor.father = edge.end.ancestor
+
+                elif edge.end.ancestor.rank < edge.start.ancestor.rank:
+                    edge.start.ancestor.set_son(edge.end.ancestor)
+                    edge.end.ancestor.father = edge.start.ancestor
+
+                else:
+                    upgrade_rank(edge.start.ancestor)
+                    edge.start.ancestor.set_son(edge.end.ancestor)
+                    edge.end.ancestor.father = edge.start.ancestor
+
                 nb_nodes_mst += 1
                 self.add_edge(edge)
                 self.add_weight(edge.weight)
+
             elif nb_nodes_mst == nb_nodes_original_graph:
-                print "OK, tous les noeuds sont pris!!"
+                print "\nOK, tous les noeuds sont pris!!\n"
+                for node in self.get_nodes():
+                    print "Noeud ", node, "rang", node.rank
                 break
+
+
+def upgrade_rank(node):
+    if node.get_sons == []:
+        node.rank += 1
+        print node, node.rank
+    else:
+        node.rank += 1
+        for son in node.get_sons():
+            upgrade_rank(son)
