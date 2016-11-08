@@ -10,9 +10,11 @@ class Node(object):
         self.__data = data
         Node.__node_count += 1
         self.__id = Node.__node_count
-        self.__father = None
+        self.__father = self
         self.__rank = 0
-        self.__sons = []
+        self.__ancestor = self
+        self.__min_weight = 9999
+        self.__prim_father = None
 
     def get_name(self):
         """"Donne le nom du noeud."""
@@ -25,12 +27,6 @@ class Node(object):
     def get_data(self):
         """Donne les donnees contenues dans le noeud."""
         return self.__data
-
-    def set_son(self, son):
-        self.__sons.append(son)
-
-    def get_sons(self):
-        return self.__sons
 
     def __repr__(self):
         indice = self.get_id()
@@ -53,15 +49,24 @@ class Node(object):
             self.__father = father
 
     @property
+    def prim_father(self):
+        return self.__prim_father
+
+    # This allows the start node to be set
+    @prim_father.setter
+    def prim_father(self, prim_father):
+        self.__prim_father = prim_father
+
+    @property
     def ancestor(self):
         """recursive function to get node's ancestor"""
-        p1 = self
-        p2 = self.father
+        p1 = self.__ancestor
+        p2 = self.__ancestor.father
         while p2 != p1:
             p1 = p2
             p2 = p1.father
+        self.__ancestor = p1
         return p1
-
 
     @property
     def rank(self):
@@ -70,9 +75,38 @@ class Node(object):
     # This allows the rank node to be set
     @rank.setter
     def rank(self, rank):
-        if rank is not 0:
+        if rank != 0:
             self.__rank = rank
 
+    @property
+    def min_weight(self):
+        return self.__min_weight
+
+    # This allows the min weight to be set
+    @min_weight.setter
+    def min_weight(self, min_weight):
+        if isinstance(min_weight, int) or isinstance(min_weight, float):
+            self.__min_weight = min_weight
+
+    def __gt__(self, other):
+        if self.min_weight > other.min_weight:
+            return True
+        return False
+
+    def __lt__(self, other):
+        if self.min_weight < other.min_weight:
+            return True
+        return False
+
+    def __ge__(self, other):
+        if self.min_weight >= other.min_weight:
+            return True
+        return False
+
+    def __le__(self, other):
+        if self.min_weight <= other.min_weight:
+            return True
+        return False
 
 if __name__ == '__main__':
 

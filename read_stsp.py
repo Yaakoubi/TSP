@@ -182,7 +182,6 @@ def read_edges(local_header, local_fd, graph):
                         e = Edge(
                             name='E from {0:d} to {1:d}'.format(
                                 i, k), data=e_data)
-
                         graph.add_edge(e)
                         graph.add_to_dict(e)
                     elif edge_weight_format == 'FULL_MATRIX' and (k < i):

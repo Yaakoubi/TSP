@@ -82,7 +82,10 @@ class Graph(object):
         """ Retourne l'arete entre le noeud 1 et le noeud 2"""
         data_node1 = self.__dict.get(node1)
         if data_node1 is None:
-            return None
+            data_node2 = self.__dict.get(node2)
+            if data_node2 is None:
+                return None
+            return data_node2.get(node1)
         if data_node1.get(node2) is None:
             data_node2 = self.__dict.get(node2)
             return data_node2.get(node1)

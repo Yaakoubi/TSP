@@ -1,19 +1,15 @@
 from read_stsp import read_edges
 from read_stsp import read_header
 from read_stsp import read_nodes
-
+from graph import Graph
 from mst import Mst
-from mst import upgrade_rank
-
 
 if __name__ == "__main__":
-
     import sys
 
     finstance = sys.argv[1]
-    G = Mst()
+    G = Graph()
     with open(finstance, "r") as fd:
-
         header = read_header(fd)
         # print 'Header: ', header
         dim = header['DIMENSION']
@@ -28,8 +24,14 @@ if __name__ == "__main__":
     # G.plot_graph()
     # print (G)
 
-    kruskal_tree = Mst(original_graph=G)
+    kruskal_tree = Mst(original_graph=G, method='kruskal')
 
-    kruskal_tree.plot_graph()
+    # kruskal_tree.plot_graph()
 
-    print 'Poids total du graphe : ' + header.__getitem__('NAME') + '  = ' + str(kruskal_tree.weight) + '\n'
+    print 'Poids total du graphe : ' + header.__getitem__('NAME') + ' = ' + str(kruskal_tree.weight) + '\n'
+
+    kruskal_tree2 = Mst(original_graph=G,method='prim')
+
+    print 'Poids total du graphe 2 : ' + header.__getitem__('NAME') + ' = ' + str(kruskal_tree2.weight) + '\n'
+
+    # kruskal_tree2.plot_graph()

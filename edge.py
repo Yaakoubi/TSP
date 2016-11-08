@@ -85,12 +85,52 @@ class Edge(object):
         s += ' (donnees: ' + repr(data) + ')'
         return s
 
+    def __ne__(self, other):
+        if self.weight != other.weight:
+            return True
+        return False
+
+    def __eq__(self, other):
+        if self.weight == other.weight:
+            return True
+        return False
+
+    def __gt__(self, other):
+        if self.weight > other.weight:
+            return True
+        return False
+
+    def __lt__(self, other):
+        if self.weight < other.weight:
+            return True
+        return False
+
+    def __ge__(self, other):
+        if self.weight >= other.weight:
+            return True
+        return False
+
+    def __le__(self, other):
+        if self.weight <= other.weight:
+            return True
+        return False
+
 
 if __name__ == '__main__':
 
     edges = []
     for k in range(5):
-        edges.append(Edge())
+        new = Edge()
+        new.weight = 100 - k * 10
+        edges.append(new)
 
     for edge in edges:
         print edge
+
+    print edges[0] < edges[1]
+    print edges[0] >= edges[1]
+    print edges[0] == edges[1]
+    print edges[0] != edges[0]
+    print edges[0] == edges[0]
+    print edges[2] > edges[1]
+    print edges[2] <= edges[1]
