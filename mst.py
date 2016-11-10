@@ -9,13 +9,18 @@ from wline import Heap
 class Mst(Graph):
     """ This is a special kind of graph made to perform Kruskal Algorithm"""
 
-    def __init__(self, name='Sans nom', original_graph=None, method='kruskal'):
+    def __init__(
+            self,
+            name='Sans nom',
+            original_graph=None,
+            method='kruskal',
+            heap=False):
         Graph.__init__(self, name)
         if original_graph is not None:
             if method == 'kruskal':
                 self.kruskal(original_graph)
             elif method == 'prim':
-                self.prim(original_graph)
+                self.prim(original_graph, heap)
                 # self.kruskal_CompressionDesChemins(original_graph)
 
     def kruskal(self, original_graph=None):
@@ -60,7 +65,7 @@ class Mst(Graph):
                 #     print key, ":", item
                 break
 
-    def prim(self, original_graph=None):
+    def prim(self, original_graph=None, heap=False):
         """Set the tree using the prim algorithm"""
         if (not isinstance(original_graph, Graph)) or (original_graph is None):
             return 0
@@ -73,8 +78,11 @@ class Mst(Graph):
 
         self.get_node(0).min_weight = 0
 
-        # The Only line to change if we want to use Heap or queue
-        queue = Queue()
+        if heap:
+            queue = Heap()
+        else:
+            queue = Queue()
+
         for n in self.get_nodes():
             queue.enqueue(n)
 
@@ -85,7 +93,7 @@ class Mst(Graph):
                 if (node2 in queue) and (edge.weight < node2.min_weight):
                     node2.prim_father = node1
                     node2.min_weight = edge.weight
-                    if isinstance(queue, Heap):
+                    if heap:
                         queue.enqueue(node2)
 
         for node in self.get_nodes():

@@ -29,7 +29,7 @@ class Queue(object):
             return None
 
 
-class Heap:
+class Heap(object):
 
     def __init__(self):
         self.pq = []  # list of entries arranged in a heap
@@ -44,7 +44,7 @@ class Heap:
     def dequeue(self):
         """Remove and return the lowest priority Item"""
         while self.pq:
-            min_weight, item = heappop(self.pq)
+            item = heappop(self.pq)[1]
             if item in self.entry_finder:
                 del self.entry_finder[item]
                 return item

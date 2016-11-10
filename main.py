@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     print 'Poids total du graphe : ' + header.__getitem__('NAME') + ' = ' + str(kruskal_tree.weight) + '\n'
 
-    kruskal_tree2 = Mst(original_graph=G,method='prim')
+    kruskal_tree2 = Mst(original_graph=G, method='prim', heap=True)
 
     print 'Poids total du graphe 2 : ' + header.__getitem__('NAME') + ' = ' + str(kruskal_tree2.weight) + '\n'
 
