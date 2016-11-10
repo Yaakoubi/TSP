@@ -85,7 +85,7 @@ class Node(object):
     # This allows the min weight to be set
     @min_weight.setter
     def min_weight(self, min_weight):
-        if isinstance(min_weight, int) or isinstance(min_weight, float):
+        if isinstance(min_weight, (int, float)):
             self.__min_weight = min_weight
 
     def __gt__(self, other):

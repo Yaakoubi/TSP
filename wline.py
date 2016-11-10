@@ -1,5 +1,5 @@
 from node import Node
-from _heapq import *
+from _heapq import heappop, heappush
 
 
 class Queue(object):
@@ -30,6 +30,7 @@ class Queue(object):
 
 
 class Heap(object):
+    """Une implementation de la structure de donnees << file >> en utilisant les heaps"""
 
     def __init__(self):
         self.pq = []  # list of entries arranged in a heap
