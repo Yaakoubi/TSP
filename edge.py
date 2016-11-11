@@ -127,10 +127,10 @@ if __name__ == '__main__':
     for edge in edges:
         print edge
 
-    print edges[0] < edges[1]
-    print edges[0] >= edges[1]
-    print edges[0] == edges[1]
-    print edges[0] != edges[0]
-    print edges[0] == edges[0]
-    print edges[2] > edges[1]
-    print edges[2] <= edges[1]
+    # print edges[0] < edges[1]
+    # print edges[0] >= edges[1]
+    # print edges[0] == edges[1]
+    # print edges[0] != edges[0]
+    # print edges[0] == edges[0]
+    # print edges[2] > edges[1]
+    # print edges[2] <= edges[1]

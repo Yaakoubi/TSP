@@ -52,7 +52,7 @@ class Mst(Graph):
             elif nb_nodes_mst == nb_nodes_original_graph:
                 # repr only : return node + rank then nb_time node is an
                 # ancestor to be sure it's all OK
-                print "\nOK, tous les noeuds sont pris!!\n"
+                # print "\nOK, tous les noeuds sont pris!!\n"
                 # occurence = {}
                 # for node in self.get_nodes():
                 #     print "Noeud ", node, "rang", node.rank

@@ -5,7 +5,7 @@ import unittest
 import random as rand
 
 
-class TestgraphMethods(unittest.TestCase):
+class TestGraphMethods(unittest.TestCase):
     """ Teste les differentes fonctions de la classe Graph."""
 
     def setUp(self):

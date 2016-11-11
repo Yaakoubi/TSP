@@ -13,7 +13,7 @@ class Node(object):
         self.__father = self
         self.__rank = 0
         self.__ancestor = self
-        self.__min_weight = 9999
+        self.__min_weight = float('infinity')
         self.__prim_father = None
 
     def get_name(self):

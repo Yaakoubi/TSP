@@ -67,9 +67,24 @@ class TestEdgeMethods(unittest.TestCase):
     def test_set_weight(self):
         """ Verification que le poids est bien affecte"""
         self.edg_def.weight = 5
-        self.edg_test2.weight = 7
+        self.edg_test2.weight = 79
         self.failUnless(self.edg_def.weight == 5)
-        self.failUnless(self.edg_test2.weight == 7)
+        self.failUnless(self.edg_test2.weight == 79)
+
+    def test_repr(self):
+        """ Verification qu'une chaine de caracteres est bien renvoyee a l'affichage par le module print """
+        self.assertTrue(isinstance(self.edg_test1.__repr__(), str))
+
+    def test_comparison(self):
+        """ Verification des comparaisons entre les differentes aretes"""
+        self.edg_def.weight = 5
+        self.edg_test2.weight = 79
+        self.failUnless(self.edg_test1 >= self.edg_def)
+        self.failUnless(self.edg_test1 > self.edg_def)
+        self.failUnless(self.edg_def <= self.edg_test1)
+        self.failUnless(self.edg_def < self.edg_test1)
+        self.failUnless(self.edg_test1 == self.edg_test2)
+        self.failUnless(self.edg_test1 != self.edg_def)
 
 if __name__ == '__main__':
     unittest.main()
