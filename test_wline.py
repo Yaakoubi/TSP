@@ -61,7 +61,11 @@ class TestGraphMethods(unittest.TestCase):
 
     def test_heap_enqueue(self):
         """ Verifie l'ajout d'element """
-        self.failUnless(self.heap_line.entry_finder[self.nodes[1]] == [self.nodes[1].min_weight, self.nodes[1]])
+        self.failUnless(
+            self.heap_line.entry_finder[
+                self.nodes[1]] == [
+                self.nodes[1].min_weight,
+                self.nodes[1]])
 
     def test_heap_is_empty(self):
         """ Teste la fonction verifiant si la liste est vide """

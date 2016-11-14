@@ -86,13 +86,13 @@ class TestEdgeMethods(unittest.TestCase):
         self.failUnless(self.edg_test1 > self.edg_def)
         self.failIf(self.edg_def > self.edg_test1)
         self.failUnless(self.edg_def <= self.edg_test1)
-        self.failIf(self.edg_test1 <= self.edg_def )
+        self.failIf(self.edg_test1 <= self.edg_def)
         self.failUnless(self.edg_def < self.edg_test1)
         self.failIf(self.edg_test1 < self.edg_def)
         self.failUnless(self.edg_test1 == self.edg_test2)
-        self.failIf( self.edg_test2.weight ==  self.edg_def.weight)
+        self.failIf(self.edg_test2.weight == self.edg_def.weight)
         self.failUnless(self.edg_test1 != self.edg_def)
-        self.failIf ( self.edg_test2.weight !=  self.edg_test1.weight )
+        self.failIf(self.edg_test2.weight != self.edg_test1.weight)
 
 if __name__ == '__main__':
     unittest.main()

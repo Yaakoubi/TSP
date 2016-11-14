@@ -28,8 +28,6 @@ if __name__ == "__main__":
     # kruskal_tree.plot_graph()
     print 'Poids total du graphe : ' + header.__getitem__('NAME') + ' = ' + str(kruskal_tree.weight) + '\n'
 
-
-
     prim_tree = Mst(original_graph=G, method='prim', heap=True)
     print 'Poids total du graphe 2 : ' + header.__getitem__('NAME') + ' = ' + str(prim_tree.weight) + '\n'
 

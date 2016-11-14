@@ -67,8 +67,6 @@ class Graph(object):
     def usage(self):
         return self.__usage
 
-
-
     def add_weight(self, weight):
         """Ajoute un poids au graphe."""
         if (weight is not None) and (isinstance(
@@ -77,14 +75,11 @@ class Graph(object):
 
             # This allows the kruskal usage to be set
 
-
     # This allows the kruskal usage to be set
     @usage.setter
     def usage(self, boo):
-        if (boo is not None) and (isinstance(boo,bool)):
+        if (boo is not None) and (isinstance(boo, bool)):
             self.__usage = boo
-
-
 
     def add_to_dict(self, edge):
         """ Ajoute un element dans le double dictionnaire

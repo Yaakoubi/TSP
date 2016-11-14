@@ -23,7 +23,7 @@ class Queue(object):
         return repr(self.items)
 
     def dequeue(self):
-        if len(self.items): # =list not empty
+        if len(self.items):  # =list not empty
             return self.items.pop(self.items.index(min(self.items)))
             # eject item with minimum value = (here) smallest edge
         else:

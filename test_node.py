@@ -66,12 +66,12 @@ class TestNodeMethods(unittest.TestCase):
         self.nod_test1.min_weight = 0
         self.failUnless(self.nod_def >= self.nod_test1)
         self.failIf(self.nod_test1 >= self.nod_def)
-        self.failUnless( self.nod_def > self.nod_test1)
-        self.failIf ( self.nod_test1 > self.nod_def)
+        self.failUnless(self.nod_def > self.nod_test1)
+        self.failIf(self.nod_test1 > self.nod_def)
         self.failUnless(self.nod_test1 <= self.nod_def)
-        self.failIf ( self.nod_def <= self.nod_test1)
+        self.failIf(self.nod_def <= self.nod_test1)
         self.failUnless(self.nod_test1 < self.nod_def)
-        self.failIf ( self.nod_def < self.nod_test1 )
+        self.failIf(self.nod_def < self.nod_test1)
         # self.failUnless(self.nod_test1 == self.nod_def)
 
 if __name__ == '__main__':

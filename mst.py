@@ -36,7 +36,7 @@ class Mst(Graph):
 
         if original_graph.usage:
             for node in original_graph.get_nodes():
-                node.__init__(node.get_name(),node.get_data())
+                node.__init__(node.get_name(), node.get_data())
             original_graph.usage = False
 
         for node in original_graph.get_nodes():
@@ -73,7 +73,6 @@ class Mst(Graph):
                 break
         original_graph.usage = True
 
-
     def prim(self, original_graph=None, heap=False):
         """Set the tree using the prim algorithm"""
         if (not isinstance(original_graph, Graph)) or (original_graph is None):
@@ -84,7 +83,7 @@ class Mst(Graph):
 
         if original_graph.usage:
             for node in original_graph.get_nodes():
-                node.__init__(node.get_name(),node.get_data())
+                node.__init__(node.get_name(), node.get_data())
             original_graph.usage = False
 
         for node in original_graph.get_nodes():
@@ -92,7 +91,7 @@ class Mst(Graph):
 
         nb_nodes_mst, nb_nodes_original_graph = 1, original_graph.get_nb_nodes()
 
-        self.get_node(randint(0,nb_nodes_original_graph-1)).min_weight = 0
+        self.get_node(randint(0, nb_nodes_original_graph - 1)).min_weight = 0
 
         if heap:
             queue = Heap()

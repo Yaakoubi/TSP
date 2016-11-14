@@ -2,8 +2,8 @@ from edge import Edge
 from node import Node
 from graph import Graph
 from mst import Mst
-import random as rand
 import unittest
+
 
 class TestMstMethods(unittest.TestCase):
     """ Teste les differentes fonctions de la classe Mst """
@@ -30,7 +30,6 @@ class TestMstMethods(unittest.TestCase):
         self.kruskal_tree = Mst(original_graph=self.G, method='kruskal')
         self.prim_tree = Mst(original_graph=self.G, method='prim', heap=True)
 
-
     def test_kruskal(self):
         """ Verification de l'algorithme de kruskal """
         self.assertEqual(self.kruskal_tree.weight, 9000)
@@ -44,18 +43,16 @@ class TestMstMethods(unittest.TestCase):
         self.assertEqual(self.kruskal_tree.weight, 9000)
 
     def test_prim_again(self):
-        self.prim_tree.prim(original_graph=self.G,heap = False)
+        self.prim_tree.prim(original_graph=self.G, heap=False)
         self.assertEqual(self.prim_tree.weight, 9000)
-
 
     def test_kruskal_init(self):
         self.kruskal_tree.kruskal(original_graph=None)
         self.assertEqual(self.kruskal_tree.weight, 0)
 
     def test_prim_init(self):
-        self.prim_tree.prim(original_graph=int(),heap = False)
+        self.prim_tree.prim(original_graph=int(), heap=False)
         self.assertEqual(self.prim_tree.weight, 0)
-
 
 
 if __name__ == '__main__':
