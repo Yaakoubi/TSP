@@ -38,9 +38,7 @@ class Node(object):
 
     @property
     def father(self):
-        if self.__father is not None:
-            return self.__father
-        return self
+        return self.__father
 
     # This allows the start node to be set
     @father.setter

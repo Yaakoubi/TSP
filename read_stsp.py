@@ -235,4 +235,4 @@ if __name__ == "__main__":
         print "Reading edges"
         edges = read_edges(header, fd, G)
 
-    G.plot_graph()
+    # G.plot_graph()

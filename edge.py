@@ -33,7 +33,6 @@ class Edge(object):
                 return self.__data[0]
             except IndexError:
                 return None
-        return None
 
     # This allows the start node to be set
     @start.setter
@@ -50,7 +49,6 @@ class Edge(object):
                 return self.__data[1]
             except IndexError:
                 return None
-        return None
 
     # This allows the end node to be set
     @end.setter
@@ -67,7 +65,6 @@ class Edge(object):
                 return self.__data[2]
             except IndexError:
                 return None
-        return None
 
     # This allows the start node to be set
     @weight.setter
@@ -127,10 +124,10 @@ if __name__ == '__main__':
     for edge in edges:
         print edge
 
-    # print edges[0] < edges[1]
-    # print edges[0] >= edges[1]
-    # print edges[0] == edges[1]
-    # print edges[0] != edges[0]
-    # print edges[0] == edges[0]
-    # print edges[2] > edges[1]
-    # print edges[2] <= edges[1]
+    print edges[0] < edges[1]
+    print edges[0] >= edges[1]
+    print edges[0] == edges[1]
+    print edges[0] != edges[0]
+    print edges[0] == edges[0]
+    print edges[2] > edges[1]
+    print edges[2] <= edges[1]

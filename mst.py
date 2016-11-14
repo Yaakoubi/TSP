@@ -1,7 +1,7 @@
 from graph import Graph
 from wline import Queue
 from wline import Heap
-
+from random import randint
 
 # from binary_tree import BinaryTree
 
@@ -29,9 +29,16 @@ class Mst(Graph):
         make a paths compression by the paths compression method"""
 
         if (not isinstance(original_graph, Graph)) or (original_graph is None):
+            Graph.__init__(self, self.get_name())
             return 0
         if (self.get_nb_nodes() > 0) or (self.get_nb_edges() > 0):
             Graph.__init__(self, self.get_name())
+
+        if original_graph.usage:
+            for node in original_graph.get_nodes():
+                node.__init__(node.get_name(),node.get_data())
+            original_graph.usage = False
+
         for node in original_graph.get_nodes():
             self.add_node(node)
         list_edges = sorted(original_graph.get_edges(), key=lambda i: i.weight)
@@ -64,19 +71,28 @@ class Mst(Graph):
                 # for (key,item) in (occurence.items()):
                 #     print key, ":", item
                 break
+        original_graph.usage = True
+
 
     def prim(self, original_graph=None, heap=False):
         """Set the tree using the prim algorithm"""
         if (not isinstance(original_graph, Graph)) or (original_graph is None):
+            Graph.__init__(self, self.get_name())
             return 0
         if (self.get_nb_nodes() > 0) or (self.get_nb_edges() > 0):
             Graph.__init__(self, self.get_name())
+
+        if original_graph.usage:
+            for node in original_graph.get_nodes():
+                node.__init__(node.get_name(),node.get_data())
+            original_graph.usage = False
+
         for node in original_graph.get_nodes():
             self.add_node(node)
 
         nb_nodes_mst, nb_nodes_original_graph = 1, original_graph.get_nb_nodes()
 
-        self.get_node(0).min_weight = 0
+        self.get_node(randint(0,nb_nodes_original_graph-1)).min_weight = 0
 
         if heap:
             queue = Heap()
@@ -105,3 +121,4 @@ class Mst(Graph):
                 self.add_weight(edge.weight)
             if nb_nodes_mst == nb_nodes_original_graph:
                 break
+        original_graph.usage = True

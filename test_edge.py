@@ -16,6 +16,7 @@ class TestEdgeMethods(unittest.TestCase):
         self.edg_test2 = Edge(data=[self.n2, self.n3], name="edge_test2")
         self.edg_test3 = Edge("edge_test2")
         self.edg_test4 = Edge("edge_test4", [])
+        self.edg_test5 = Edge("edge_test5", [])
         self.edg_def = Edge()
 
     def test_get_name(self):
@@ -51,6 +52,7 @@ class TestEdgeMethods(unittest.TestCase):
         """ Verification que le pointeur de donnees renvoie vers quelque chose. """
         self.edg_def.start = Node()
         self.edg_test2.start = Node()
+        self.edg_test5.start = Node()
         self.failUnless(self.edg_def.start is not None)
         self.failUnless(self.edg_test2.start is not None)
 
@@ -80,11 +82,17 @@ class TestEdgeMethods(unittest.TestCase):
         self.edg_def.weight = 5
         self.edg_test2.weight = 79
         self.failUnless(self.edg_test1 >= self.edg_def)
+        self.failIf(self.edg_def >= self.edg_test1)
         self.failUnless(self.edg_test1 > self.edg_def)
+        self.failIf(self.edg_def > self.edg_test1)
         self.failUnless(self.edg_def <= self.edg_test1)
+        self.failIf(self.edg_test1 <= self.edg_def )
         self.failUnless(self.edg_def < self.edg_test1)
+        self.failIf(self.edg_test1 < self.edg_def)
         self.failUnless(self.edg_test1 == self.edg_test2)
+        self.failIf( self.edg_test2.weight ==  self.edg_def.weight)
         self.failUnless(self.edg_test1 != self.edg_def)
+        self.failIf ( self.edg_test2.weight !=  self.edg_test1.weight )
 
 if __name__ == '__main__':
     unittest.main()
