@@ -105,6 +105,20 @@ class Graph(object):
         else:
             return data_node1.get(node2)
 
+    def get_neighbors(self, node1):
+        """retourne les voisons d'un noeud"""
+        if node1 is not None and isinstance(node1, Node):
+            # L = self.__dict.get(node1)
+            local_dict = {}
+            for node2, set1 in self.__dict.items():
+                for node3, edge in set1.items():
+                    if (node1 == node2):
+                        local_dict[node3] = edge
+                    elif (node1 == node3):
+                        local_dict[node2] = edge
+            return local_dict
+        return None
+
     def __repr__(self):
         """Redefinit l'affichage """
         name = self.get_name()

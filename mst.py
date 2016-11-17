@@ -14,13 +14,13 @@ class Mst(Graph):
             name='Sans nom',
             original_graph=None,
             method='kruskal',
-            heap=False):
+            heap=False, source=None):
         Graph.__init__(self, name)
         if original_graph is not None:
             if method == 'kruskal':
                 self.kruskal(original_graph)
             elif method == 'prim':
-                self.prim(original_graph, heap)
+                self.prim(original_graph, heap, source)
                 # self.kruskal_CompressionDesChemins(original_graph)
 
     def kruskal(self, original_graph=None):
@@ -54,6 +54,7 @@ class Mst(Graph):
                     edge.end.ancestor.father = edge.start.ancestor
                 nb_nodes_mst += 1
                 self.add_edge(edge)
+                self.add_to_dict(edge)
                 self.add_weight(edge.weight)
 
             elif nb_nodes_mst == nb_nodes_original_graph:
@@ -73,7 +74,7 @@ class Mst(Graph):
                 break
         original_graph.usage = True
 
-    def prim(self, original_graph=None, heap=False):
+    def prim(self, original_graph=None, heap=False, source=None):
         """Set the tree using the prim algorithm"""
         if (not isinstance(original_graph, Graph)) or (original_graph is None):
             Graph.__init__(self, self.get_name())
@@ -91,7 +92,14 @@ class Mst(Graph):
 
         nb_nodes_mst, nb_nodes_original_graph = 1, original_graph.get_nb_nodes()
 
-        self.get_node(randint(0, nb_nodes_original_graph - 1)).min_weight = 0
+        if source is None:
+            self.get_node(
+                randint(
+                    0,
+                    nb_nodes_original_graph -
+                    1)).min_weight = 0
+        else:
+            source.min_weight = 0
 
         if heap:
             queue = Heap()
@@ -103,6 +111,7 @@ class Mst(Graph):
 
         while not queue.is_empty():
             node1 = queue.dequeue()
+            # print node1
             for node2 in self.get_nodes():
                 edge = original_graph.get_edge_from_dict(node1, node2)
                 if (node2 in queue) and (edge.weight < node2.min_weight):
@@ -117,6 +126,7 @@ class Mst(Graph):
                     node, node.prim_father)
                 nb_nodes_mst += 1
                 self.add_edge(edge)
+                self.add_to_dict(edge)
                 self.add_weight(edge.weight)
             if nb_nodes_mst == nb_nodes_original_graph:
                 break
