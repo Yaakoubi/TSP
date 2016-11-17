@@ -106,7 +106,7 @@ class Graph(object):
             return data_node1.get(node2)
 
     def get_neighbors(self, node1):
-        """retourne les voisons d'un noeud"""
+        """retourne les voisins d'un noeud"""
         if node1 is not None and isinstance(node1, Node):
             # L = self.__dict.get(node1)
             local_dict = {}

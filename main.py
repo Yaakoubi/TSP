@@ -38,7 +38,24 @@ if __name__ == "__main__":
     # print i.get_id() , prim_tree.get_neighbors(i) , ' ------ ' ,
     # i.ancestor.get_id(), '\n\n'
 
-    cycle1 = Cycle(original_graph=G, method='prim')
+    nb_nodes = G.get_nb_nodes()
+    # graph_min = Graph()
+    # graph_min.add_weight(float('infinity'))
+
+    cycle1 = Cycle(name=header['NAME'], original_graph=G, method='kruskal')
+    graph_min = cycle1
+
+    for num_node in xrange(nb_nodes):
+        cycle2 = Cycle(name=header['NAME'], original_graph=G, method='prim', num_node=num_node)
+        if cycle2.weight < graph_min.weight:
+            graph_min = cycle2
+
+    graph_min.plot_graph()
+    graph_min.spanning_tree.plot_graph()
+    print "\n\nFINALEMENT : \nPoids obtenu via l'algorithme de Rosenkrantz : " + str(graph_min.poids_algo)
+    print "Poids optimal : " + str(graph_min.poids_opt) + "\nErreur relative : " + str(graph_min.err_rel * 100) + "%"
+
+
     # print cycle1.spanning_tree.weight
     # cycle1.spanning_tree.plot_graph()
     # prim_tree.plot_graph()
