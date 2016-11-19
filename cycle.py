@@ -70,6 +70,7 @@ class Cycle(Graph):
                 self.add_to_list(local_node)
 
     def trace_cycle(self, original_graph):
+        """build the cycle,once the nodes are in ordre"""
         # for i in xrange(0,original_graph.get_nb_nodes()):
         #     self.add_edge(original_graph.get_edge_from_dict(self.ordrerd_list[i-1],self.ordrerd_list[i]))
         source = self.file.dequeue()

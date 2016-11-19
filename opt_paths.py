@@ -1,6 +1,7 @@
 
 
 class Paths (object):
+    """contains only the weights of optimal paths"""
     dico_opt_path = {
         "a280": 2579,
         "ali535": 202339,

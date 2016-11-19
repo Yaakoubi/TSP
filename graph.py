@@ -117,9 +117,9 @@ class Graph(object):
             local_dict = {}
             for node2, set1 in self.__dict.items():
                 for node3, edge in set1.items():
-                    if (node1 == node2):
+                    if node1 == node2:
                         local_dict[node3] = edge
-                    elif (node1 == node3):
+                    elif node1 == node3:
                         local_dict[node2] = edge
             return local_dict
         return None
@@ -130,12 +130,12 @@ class Graph(object):
             # L = self.__dict.get(node1)
             local_dict = File()
             for node2, set1 in self.__dict.items():
-                for node3, edge in set1.items():
-                    if (node1 == node2):
+                for node3 in set1.keys():
+                    if node1 == node2:
                         # local_dict[node3] = edge
                         local_dict.enqueue(node3)
                         # print ( node3 )
-                    elif (node1 == node3):
+                    elif node1 == node3:
                         # local_dict[node2] = edge
                         local_dict.enqueue(node2)
                         # print node2
