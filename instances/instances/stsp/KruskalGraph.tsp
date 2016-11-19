@@ -1,4 +1,4 @@
-NAME: kruskal
+NAME: kruskal_graph
 TYPE: TSP
 COMMENT: 9 cities from the course
 DIMENSION: 9

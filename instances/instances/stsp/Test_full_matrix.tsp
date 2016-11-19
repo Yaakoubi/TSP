@@ -1,4 +1,4 @@
-NAME: bays7
+NAME: bays7_full
 TYPE: TSP
 COMMENT: 29 cities in Bavaria, street distances (Groetschel,Juenger,Reinelt)
 DIMENSION: 7

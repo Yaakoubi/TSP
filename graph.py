@@ -2,6 +2,7 @@ import random as rand
 import numpy as np
 from node import Node
 from edge import Edge
+from wline import File
 
 
 class Graph(object):
@@ -67,6 +68,10 @@ class Graph(object):
     def usage(self):
         return self.__usage
 
+    @property
+    def dict(self):
+        return self.__dict
+
     def add_weight(self, weight):
         """Ajoute un poids au graphe."""
         if (weight is not None) and (isinstance(
@@ -116,6 +121,24 @@ class Graph(object):
                         local_dict[node3] = edge
                     elif (node1 == node3):
                         local_dict[node2] = edge
+            return local_dict
+        return None
+
+    def get_neighbors2(self, node1):
+        """retourne les voisins d'un noeud"""
+        if node1 is not None and isinstance(node1, Node):
+            # L = self.__dict.get(node1)
+            local_dict = File()
+            for node2, set1 in self.__dict.items():
+                for node3, edge in set1.items():
+                    if (node1 == node2):
+                        # local_dict[node3] = edge
+                        local_dict.enqueue(node3)
+                        # print ( node3 )
+                    elif (node1 == node3):
+                        # local_dict[node2] = edge
+                        local_dict.enqueue(node2)
+                        # print node2
             return local_dict
         return None
 

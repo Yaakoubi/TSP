@@ -1,4 +1,4 @@
-NAME: gr8
+NAME: gr8_diag_row
 TYPE: TSP
 COMMENT: 8 cities in Germany (Groetschel)
 DIMENSION: 8
