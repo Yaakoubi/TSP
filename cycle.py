@@ -3,6 +3,7 @@ from mst import Mst
 # from random import randint
 from wline import File
 from opt_paths import Paths
+from wline import Stack
 
 
 class Cycle(Graph):
@@ -10,6 +11,9 @@ class Cycle(Graph):
 
     # ordrerd_list = []
     file = File()
+    __found = True
+    __kruskal = False
+    __prim = False
 
     def __init__(
             self,
@@ -26,18 +30,20 @@ class Cycle(Graph):
             if method == 'kruskal':
                 self.__spanning_tree = Mst(
                     original_graph=original_graph, method='kruskal')
-                source = original_graph.get_node(0).ancestor
+                self.__source = original_graph.get_node(0).ancestor
+                self.__kruskal = True
 
             elif method == 'prim':
                 # source = original_graph.get_node(randint(0, original_graph.get_nb_nodes() - 1))
-                source = original_graph.get_node(num_node)
+                self.__source = original_graph.get_node(num_node)
                 self.__spanning_tree = Mst(
                     original_graph=original_graph,
                     method='prim',
                     heap=True,
                     source=source)
-
-            self.add_to_list(source)
+                self.__prim = True
+            # LIGNE A CHANGER SI ON VEUT PARCOURIR EN ITERATIF (OU EN RECURSIF)
+            self.dfs(source)
             self.trace_cycle(original_graph)
             # self.__spanning_tree.plot_graph()
             # self.plot_graph()
@@ -46,10 +52,11 @@ class Cycle(Graph):
                 self.poids_algo, self.poids_opt = self.weight, Paths.dico_opt_path[
                     name]
             except KeyError:
+                self.__found = False
                 self.poids_algo, self.poids_opt = self.weight, 99999999
-
-            self.err_rel = ((1000 * (float(self.poids_algo) -
-                                     float(self.poids_opt))) // float(self.poids_opt)) / 1000
+            if self.__found:
+                self.err_rel = ((1000 * (float(self.poids_algo) -
+                                         float(self.poids_opt))) // float(self.poids_opt)) / 1000
             # print "Poids obtenu via l'algorithme de Rosenkrantz : " + str(self.poids_algo)
             # print "Poids optimal : " + str(self.poids_opt) + "\nErreur
             # relative : " + str(self.err_rel * 100) + "%"
@@ -58,16 +65,43 @@ class Cycle(Graph):
     def spanning_tree(self):
         return self.__spanning_tree
 
-    def add_to_list(self, node):
+    @property
+    def found(self):
+        return self.__found
+
+    @property
+    def kruskal(self):
+        return self.__kruskal
+
+    @property
+    def prim(self):
+        return self.__prim
+
+    def dfs(self, node):
         # self.ordrerd_list.append(node)
         self.file.enqueue(node)
         # print "node = ", node
-        local_node_neighbors = self.__spanning_tree.get_neighbors2(node)
+        local_node_neighbors = self.__spanning_tree.get_neighbors3(node)
         # print "local_neighbors == " , local_node_neighbors , '\n\n'
         while not (local_node_neighbors.is_empty()):
             local_node = local_node_neighbors.dequeue()
             if not (local_node in self.file):
-                self.add_to_list(local_node)
+                self.dfs(local_node)
+
+    def dfs_iterativ(self, root):
+
+        pile = Stack()
+        pile.push(root)  # root devient racine d'une nouvelle arborescence.
+        while not pile.is_empty():
+            u = pile.pop()
+            self.file.enqueue(u)
+            neighbors = self.__spanning_tree.get_neighbors(u)
+            # while not (neighbors.is_empty()):
+            for neighbor in neighbors:
+                # neighbor = neighbors.dequeue()
+                if not (neighbor in self.file):
+                    pile.push(neighbor)
+        return
 
     def trace_cycle(self, original_graph):
         """build the cycle,once the nodes are in ordre"""

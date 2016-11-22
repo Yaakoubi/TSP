@@ -115,7 +115,7 @@ class Paths (object):
         "vm1084": 239297,
         "vm1748": 336556,
         "bays7_full": 1135,
-        "Test_upper_diag_row": 762,
-        "LowerRow_gr8": 1737,
-        "gr8_diag_row": 1640,
+        "Test_upper_diag_row": 667,
+        "LowerRow_gr8": 1680,
+        "gr8_diag_row": 1680,
         "kruskal_graph": 100042}

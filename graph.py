@@ -3,6 +3,7 @@ import numpy as np
 from node import Node
 from edge import Edge
 from wline import File
+from wline import Heap2 as Tempo
 
 
 class Graph(object):
@@ -138,6 +139,24 @@ class Graph(object):
                     elif node1 == node3:
                         # local_dict[node2] = edge
                         local_dict.enqueue(node2)
+                        # print node2
+            return local_dict
+        return None
+
+    def get_neighbors3(self, node1):
+        """retourne les voisins d'un noeud"""
+        if node1 is not None and isinstance(node1, Node):
+            # L = self.__dict.get(node1)
+            local_dict = Tempo()
+            for node2, set1 in self.__dict.items():
+                for node3, edge in set1.items():
+                    if node1 == node2:
+                        # local_dict[node3] = edge
+                        local_dict.enqueue(node3, edge.weight)
+                        # print ( node3 )
+                    elif node1 == node3:
+                        # local_dict[node2] = edge
+                        local_dict.enqueue(node2, edge.weight)
                         # print node2
             return local_dict
         return None

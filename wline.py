@@ -63,6 +63,39 @@ class Heap(object):
         return item in self.entry_finder
 
 
+class Heap2(object):
+    """Une implementation de la structure de donnees << file >> en utilisant les heaps"""
+
+    def __init__(self):
+        self.pq = []  # list of entries arranged in a heap
+        self.entry_finder = {}  # mapping of tasks to entries
+
+    def enqueue(self, item, priority):
+        """Add a new task or update the priority of an existing task"""
+        entry = [priority, item]
+        self.entry_finder[item] = entry
+        heappush(self.pq, entry)
+
+    def dequeue(self):
+        """Remove and return the lowest priority Item"""
+        while self.pq:
+            item = heappop(self.pq)[1]
+            if item in self.entry_finder:
+                del self.entry_finder[item]
+                return item
+        return None
+
+    def __repr__(self):
+        return repr(self.pq)
+
+    def is_empty(self):
+        """Verifie si la file est vide."""
+        return len(self.pq) == 0
+
+    def __contains__(self, item):
+        return item in self.entry_finder
+
+
 class File(object):
     """Une implementation de la structure de donnees << file >>."""
 
@@ -86,6 +119,35 @@ class File(object):
 
     def __repr__(self):
         return repr(self.items)
+
+
+class Stack(object):
+    """Une implementation de la structure de donnees << pile >>."""
+
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        """Ajoute `item` sur le dessus de la pile."""
+        self.items.append(item)
+
+    def pop(self):
+        """Retire l'objet du dessus de la pile."""
+        if len(self.items) == 0:
+            raise IndexError("pile vide")
+        return self.items.pop()  # Les listes implementent deja pop() !
+
+    def top(self):
+        """Consulte l'objet du dessus de la pile."""
+        return self.items[-1]    # L'item reste dans la pile.
+
+    def is_empty(self):
+        """Verifie si la pile est vide."""
+        return len(self.items) == 0
+
+    def __repr__(self):
+        return repr(self.items)
+
 
 if __name__ == '__main__':
 
@@ -150,3 +212,23 @@ if __name__ == '__main__':
     print waiting_line2.dequeue()
 
     print '------------------------'
+
+    waiting_line3 = Heap2()
+    waiting_line3.enqueue(nodes[1], 5)
+    waiting_line3.enqueue(nodes[3], 3)
+    waiting_line3.enqueue(nodes[0], 2)
+    waiting_line3.enqueue(nodes[4], 4)
+    waiting_line3.enqueue(nodes[2], 0)
+
+    print waiting_line3
+
+    print '------------------------'
+
+    print waiting_line3.dequeue()
+    print waiting_line3.dequeue()
+    print waiting_line3.dequeue()
+    print waiting_line3
+    print waiting_line3.dequeue()
+    print waiting_line3.dequeue()
+    print waiting_line3
+    print waiting_line3.dequeue()

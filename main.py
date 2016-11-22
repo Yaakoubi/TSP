@@ -22,6 +22,10 @@ if __name__ == "__main__":
         print "Reading edges"
         edges = read_edges(header, fd, G)
 
+    method = None
+    if len(sys.argv) >= 3:
+        method = sys.argv[2]
+
     # G.plot_graph()
     # print (G)
 
@@ -39,31 +43,39 @@ if __name__ == "__main__":
     # i.ancestor.get_id(), '\n\n'
 
     nb_nodes = G.get_nb_nodes()
+    graph_min = None
     # graph_min = Graph()
     # graph_min.add_weight(float('infinity'))
+    if method is None or method == 'kruskal':
+        cycle1 = Cycle(name=header['NAME'], original_graph=G, method='kruskal')
+        graph_min = cycle1
+    # print "nombre de noeuds : ", nb_nodes
+    if method is None or method == 'prim':
+        if nb_nodes > 200 and method is None:
+            repetitions = [randint(0, G.get_nb_nodes() - 1)
+                           for i in xrange(50)]
+            print repetitions
+        else:
+            repetitions = xrange(nb_nodes)
+        for num_node in repetitions:
+            cycle2 = Cycle(
+                name=header['NAME'],
+                original_graph=G,
+                method='prim',
+                num_node=num_node)
+            if graph_min is None or cycle2.weight < graph_min.weight:
+                graph_min = cycle2
+                # print "Poids obtenu via l'algorithme de Rosenkrantz : " + str(graph_min.weight)
+                # print "Poids optimal : " + str(graph_min.poids_opt) + \
+                #       "\nErreur relative : " + str(graph_min.err_rel * 100) + "%"
 
-    cycle1 = Cycle(name=header['NAME'], original_graph=G, method='kruskal')
-    graph_min = cycle1
-    print "nombre de noeuds : ", nb_nodes
-    if nb_nodes > 200:
-        repetitions = [randint(0, graph_min.get_nb_nodes() - 1)
-                       for i in xrange(10)]
-        print repetitions
-    else:
-        repetitions = xrange(nb_nodes)
-    for num_node in repetitions:
-        cycle2 = Cycle(
-            name=header['NAME'],
-            original_graph=G,
-            method='prim',
-            num_node=num_node)
-        if cycle2.weight < graph_min.weight:
-            graph_min = cycle2
-            # print "Poids obtenu via l'algorithme de Rosenkrantz : " + str(graph_min.weight)
-            # print "Poids optimal : " + str(graph_min.poids_opt) + \
-            #       "\nErreur relative : " + str(graph_min.err_rel * 100) + "%"
-
-    # graph_min.plot_graph()
+    graph_min.plot_graph()
     # graph_min.spanning_tree.plot_graph()
-    print "FINALEMENT : \nPoids obtenu via l'algorithme de Rosenkrantz : " + str(graph_min.poids_algo)
-    print "Poids optimal : ", str(graph_min.poids_opt), "\nErreur relative : ", str(graph_min.err_rel * 100), "%\n\n"
+    if graph_min.prim:
+        print "Poids obtenu avec Prim pour le graphe " + header['NAME'] + ": " + str(graph_min.poids_algo)
+    elif graph_min.kruskal:
+        print "Poids obtenu avec Kruskal pour le graphe " + header['NAME'] + ": " + str(graph_min.poids_algo)
+    if graph_min.found:
+        print "Poids optimal : ", str(graph_min.poids_opt), "\nErreur relative : ", str(graph_min.err_rel * 100), "%\n"
+    else:
+        print 'valeur du chemin optimal non trouvee\n'
