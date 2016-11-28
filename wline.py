@@ -161,74 +161,74 @@ if __name__ == '__main__':
         #     new.min_weight = 9999
         nodes.append(new)
 
-    for node in nodes:
-        print node
-
-    print nodes[0] < nodes[1]
-    print nodes[0] >= nodes[1]
-    print nodes[0] == nodes[1]
-    print nodes[0] != nodes[0]
-    print nodes[0] == nodes[0]
-    print nodes[2] > nodes[1]
-    print nodes[2] <= nodes[1]
-
-    waiting_line = Queue()
-    waiting_line.enqueue(nodes[1])
-    waiting_line.enqueue(nodes[3])
-    waiting_line.enqueue(nodes[0])
-    waiting_line.enqueue(nodes[4])
-    waiting_line.enqueue(nodes[2])
-
-    print waiting_line
-
-    print '------------------------'
-
-    print waiting_line.dequeue()
-    print waiting_line.dequeue()
-    print waiting_line.dequeue()
-    print waiting_line
-    print waiting_line.dequeue()
-    print waiting_line.dequeue()
-    print waiting_line
-    print waiting_line.dequeue()
-
-    waiting_line2 = Heap()
-    waiting_line2.enqueue(nodes[1])
-    waiting_line2.enqueue(nodes[3])
-    waiting_line2.enqueue(nodes[0])
-    waiting_line2.enqueue(nodes[4])
-    waiting_line2.enqueue(nodes[2])
-
-    print '------------------------'
-
-    print waiting_line2.dequeue()
-    print waiting_line2.dequeue()
-    print waiting_line2.dequeue()
-    print waiting_line2
-    print nodes[0] in waiting_line2
-    print waiting_line2.dequeue()
-    print waiting_line2.dequeue()
-    print waiting_line2
-    print waiting_line2.dequeue()
-
-    print '------------------------'
-
-    waiting_line3 = Heap2()
-    waiting_line3.enqueue(nodes[1], 5)
-    waiting_line3.enqueue(nodes[3], 3)
-    waiting_line3.enqueue(nodes[0], 2)
-    waiting_line3.enqueue(nodes[4], 4)
-    waiting_line3.enqueue(nodes[2], 0)
-
-    print waiting_line3
-
-    print '------------------------'
-
-    print waiting_line3.dequeue()
-    print waiting_line3.dequeue()
-    print waiting_line3.dequeue()
-    print waiting_line3
-    print waiting_line3.dequeue()
-    print waiting_line3.dequeue()
-    print waiting_line3
-    print waiting_line3.dequeue()
+    # for node in nodes:
+    #     print node
+    #
+    # print nodes[0] < nodes[1]
+    # print nodes[0] >= nodes[1]
+    # print nodes[0] == nodes[1]
+    # print nodes[0] != nodes[0]
+    # print nodes[0] == nodes[0]
+    # print nodes[2] > nodes[1]
+    # print nodes[2] <= nodes[1]
+    #
+    # waiting_line = Queue()
+    # waiting_line.enqueue(nodes[1])
+    # waiting_line.enqueue(nodes[3])
+    # waiting_line.enqueue(nodes[0])
+    # waiting_line.enqueue(nodes[4])
+    # waiting_line.enqueue(nodes[2])
+    #
+    # print waiting_line
+    #
+    # print '------------------------'
+    #
+    # print waiting_line.dequeue()
+    # print waiting_line.dequeue()
+    # print waiting_line.dequeue()
+    # print waiting_line
+    # print waiting_line.dequeue()
+    # print waiting_line.dequeue()
+    # print waiting_line
+    # print waiting_line.dequeue()
+    #
+    # waiting_line2 = Heap()
+    # waiting_line2.enqueue(nodes[1])
+    # waiting_line2.enqueue(nodes[3])
+    # waiting_line2.enqueue(nodes[0])
+    # waiting_line2.enqueue(nodes[4])
+    # waiting_line2.enqueue(nodes[2])
+    #
+    # print '------------------------'
+    #
+    # print waiting_line2.dequeue()
+    # print waiting_line2.dequeue()
+    # print waiting_line2.dequeue()
+    # print waiting_line2
+    # print nodes[0] in waiting_line2
+    # print waiting_line2.dequeue()
+    # print waiting_line2.dequeue()
+    # print waiting_line2
+    # print waiting_line2.dequeue()
+    #
+    # print '------------------------'
+    #
+    # waiting_line3 = Heap2()
+    # waiting_line3.enqueue(nodes[1], 5)
+    # waiting_line3.enqueue(nodes[3], 3)
+    # waiting_line3.enqueue(nodes[0], 2)
+    # waiting_line3.enqueue(nodes[4], 4)
+    # waiting_line3.enqueue(nodes[2], 0)
+    #
+    # print waiting_line3
+    #
+    # print '------------------------'
+    #
+    # print waiting_line3.dequeue()
+    # print waiting_line3.dequeue()
+    # print waiting_line3.dequeue()
+    # print waiting_line3
+    # print waiting_line3.dequeue()
+    # print waiting_line3.dequeue()
+    # print waiting_line3
+    # print waiting_line3.dequeue()

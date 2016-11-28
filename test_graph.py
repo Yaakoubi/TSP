@@ -3,6 +3,7 @@ from node import Node
 from graph import Graph
 import unittest
 import random as rand
+import wline
 
 
 class TestGraphMethods(unittest.TestCase):
@@ -75,6 +76,16 @@ class TestGraphMethods(unittest.TestCase):
         edge3 = self._gra_test.get_edge_from_dict(
             self._gra_test.get_node(4), self._gra_test.get_node(1))
         self.assertTrue(edge3 is not None)
+
+    def test_get_neighbors(self):
+        self.assertIsInstance(self._gra_test.get_neighbors(self.nod_test2), dict)
+
+    def test_get_neighbors2(self):
+        self.assertIsInstance(self._gra_test.get_neighbors2(self.nod_test2), wline.File)
+
+    def test_get_neighbors3(self):
+        self.assertIsInstance(self._gra_test.get_neighbors3(self.nod_test2), wline.Heap2)
+        self.failUnless(self._gra_test.get_neighbors3(None) is None)
 
     def test_repr(self):
         """ Verification qu'une chaine de caracteres est bien renvoyee a l'affichage par le module print """

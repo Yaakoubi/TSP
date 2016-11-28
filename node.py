@@ -3,13 +3,13 @@ class Node(object):
     Une classe generique pour representer les noeuds d'un graphe.
     """
 
-    __node_count = -1   # Compteur global partage par toutes les instances.
+    _node_count = -1   # Compteur global partage par toutes les instances.
 
     def __init__(self, name='Sans nom', data=None):
         self.__name = name
         self.__data = data
-        Node.__node_count += 1
-        self.__id = Node.__node_count
+        Node._node_count += 1
+        self.__id = Node._node_count
         self.__father = self
         self.__rank = 0
         self.__ancestor = self

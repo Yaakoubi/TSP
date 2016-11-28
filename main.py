@@ -4,6 +4,7 @@ from read_stsp import read_nodes
 from graph import Graph
 from cycle import Cycle
 from random import randint
+from node import Node
 
 if __name__ == "__main__":
     import sys
@@ -47,6 +48,7 @@ if __name__ == "__main__":
     # graph_min = Graph()
     # graph_min.add_weight(float('infinity'))
     if method is None or method == 'kruskal':
+        Node._node_count = -1
         cycle1 = Cycle(name=header['NAME'], original_graph=G, method='kruskal')
         graph_min = cycle1
     # print "nombre de noeuds : ", nb_nodes
@@ -58,6 +60,7 @@ if __name__ == "__main__":
         else:
             repetitions = xrange(nb_nodes)
         for num_node in repetitions:
+            Node._node_count = -1
             cycle2 = Cycle(
                 name=header['NAME'],
                 original_graph=G,
@@ -73,6 +76,7 @@ if __name__ == "__main__":
     # graph_min.spanning_tree.plot_graph()
     if graph_min.prim:
         print "Poids obtenu avec Prim pour le graphe " + header['NAME'] + ": " + str(graph_min.poids_algo)
+        print "Noeud source : ", str(graph_min.source)
     elif graph_min.kruskal:
         print "Poids obtenu avec Kruskal pour le graphe " + header['NAME'] + ": " + str(graph_min.poids_algo)
     if graph_min.found:

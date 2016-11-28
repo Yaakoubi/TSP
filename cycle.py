@@ -23,7 +23,8 @@ class Cycle(Graph):
             num_node=0):
         Graph.__init__(self, name)
         if original_graph is not None:
-            source = original_graph.get_node(num_node)
+            self.__source = original_graph.get_node(num_node)
+
             for node in original_graph.get_nodes():
                 self.add_node(node)
             # print name
@@ -40,14 +41,14 @@ class Cycle(Graph):
                     original_graph=original_graph,
                     method='prim',
                     heap=True,
-                    source=source)
+                    source=self.__source)
                 self.__prim = True
             # LIGNE A CHANGER SI ON VEUT PARCOURIR EN ITERATIF (OU EN RECURSIF)
-            self.dfs(source)
+            self.dfs_iterativ(self.__source)
             self.trace_cycle(original_graph)
             # self.__spanning_tree.plot_graph()
             # self.plot_graph()
-            # print self.__spanning_tree.get_neighbors(source).keys()
+            # print self.__spanning_tree.get_neighbors(self.__source).keys()
             try:
                 self.poids_algo, self.poids_opt = self.weight, Paths.dico_opt_path[
                     name]
@@ -64,6 +65,10 @@ class Cycle(Graph):
     @property
     def spanning_tree(self):
         return self.__spanning_tree
+
+    @property
+    def source(self):
+        return self.__source
 
     @property
     def found(self):
