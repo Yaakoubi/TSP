@@ -31,9 +31,9 @@ class TestGraphMethods(unittest.TestCase):
         self.heap_line.enqueue(self.nodes[0])
 
         self.heap2_line = Heap2()
-        self.heap2_line.enqueue(self.nodes[1],2)
-        self.heap2_line.enqueue(self.nodes[3],1)
-        self.heap2_line.enqueue(self.nodes[0],3)
+        self.heap2_line.enqueue(self.nodes[1], 2)
+        self.heap2_line.enqueue(self.nodes[3], 1)
+        self.heap2_line.enqueue(self.nodes[0], 3)
 
         self.file_line = File()
         self.file_line.enqueue(self.nodes[1])
@@ -71,6 +71,7 @@ class TestGraphMethods(unittest.TestCase):
         self.failUnless(self.queue_line.dequeue() == self.nodes[3])
         self.failUnless(self.queue_line.dequeue() == self.nodes[1])
         self.failUnless(self.queue_line.dequeue() == self.nodes[0])
+        self.failUnless(self.queue_line.dequeue() is None)
 
     def test_heap_init_(self):
         """ Verifie que la liste initiale est vide """
@@ -133,6 +134,7 @@ class TestGraphMethods(unittest.TestCase):
         self.failUnless(self.heap2_line.dequeue() == self.nodes[3])
         self.failUnless(self.heap2_line.dequeue() == self.nodes[1])
         self.failUnless(self.heap2_line.dequeue() == self.nodes[0])
+        self.failUnless(self.heap2_line.dequeue() is None)
 
     def test_file_init_(self):
         """ Verifie que la liste initiale est vide """
@@ -187,7 +189,8 @@ class TestGraphMethods(unittest.TestCase):
         self.failUnless(self.stack_line.pop() == self.nodes[0])
         self.failUnless(self.stack_line.pop() == self.nodes[3])
         self.failUnless(self.stack_line.pop() == self.nodes[1])
-
+        with self.assertRaises(IndexError):
+            self.stack_line.pop()
 
 
 if __name__ == '__main__':

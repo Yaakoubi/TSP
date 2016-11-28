@@ -78,13 +78,19 @@ class TestGraphMethods(unittest.TestCase):
         self.assertTrue(edge3 is not None)
 
     def test_get_neighbors(self):
-        self.assertIsInstance(self._gra_test.get_neighbors(self.nod_test2), dict)
+        self.assertIsInstance(
+            self._gra_test.get_neighbors(
+                self.nod_test2), dict)
 
     def test_get_neighbors2(self):
-        self.assertIsInstance(self._gra_test.get_neighbors2(self.nod_test2), wline.File)
+        self.assertIsInstance(
+            self._gra_test.get_neighbors2(
+                self.nod_test2), wline.File)
 
     def test_get_neighbors3(self):
-        self.assertIsInstance(self._gra_test.get_neighbors3(self.nod_test2), wline.Heap2)
+        self.assertIsInstance(
+            self._gra_test.get_neighbors3(
+                self.nod_test2), wline.Heap2)
         self.failUnless(self._gra_test.get_neighbors3(None) is None)
 
     def test_repr(self):

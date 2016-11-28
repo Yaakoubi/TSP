@@ -4,6 +4,9 @@ from mst import Mst
 from wline import File
 from opt_paths import Paths
 from wline import Stack
+from node import Node
+import random as rand
+from edge import Edge
 
 
 class Cycle(Graph):
@@ -24,7 +27,7 @@ class Cycle(Graph):
         Graph.__init__(self, name)
         if original_graph is not None:
             self.__source = original_graph.get_node(num_node)
-
+            Node._node_count = -1
             for node in original_graph.get_nodes():
                 self.add_node(node)
             # print name
@@ -44,7 +47,7 @@ class Cycle(Graph):
                     source=self.__source)
                 self.__prim = True
             # LIGNE A CHANGER SI ON VEUT PARCOURIR EN ITERATIF (OU EN RECURSIF)
-            self.dfs_iterativ(self.__source)
+            self.dfs(self.__source)
             self.trace_cycle(original_graph)
             # self.__spanning_tree.plot_graph()
             # self.plot_graph()
@@ -123,3 +126,37 @@ class Cycle(Graph):
         edge_to_add = original_graph.get_edge_from_dict(source, node2)
         self.add_edge(edge_to_add)
         self.add_weight(edge_to_add.weight)
+
+
+if __name__ == '__main__':
+
+    G = Graph(name='Graphe test')
+    for k in range(10):  # nb_nodes ici = 10
+        coords = [1000 * rand.random() // 1, 1000 * rand.random() // 1]
+        test_node = Node(name='Ntest {0:d}'.format(k), data=coords)
+        G.add_node(test_node)
+    for i in range(G.get_nb_nodes()):
+        for j in range(
+                i):  # pas de redondance , donc nb_edges = nb_nodes * (nb_nodes-1) /2
+            start = G.get_node(i)
+            arrival = G.get_node(j)
+            # print  start , arrival , '\n'
+            e_data = [start, arrival, 200 * rand.random() // 1]
+            e = Edge(
+                name='Test Edge',
+                data=e_data)
+            G.add_edge(e)
+            G.add_to_dict(e)
+
+    # print G
+
+    print G.get_edge_from_dict(G.get_node(3), G.get_node(6))
+    print G.get_edge_from_dict(G.get_node(6), G.get_node(3))
+    print G.get_edge_from_dict(G.get_node(6), G.get_node(6))
+
+    cycle1 = Cycle(name="GrapheTest", original_graph=G, method='kruskal')
+    print cycle1.source
+
+    cycle1.dfs_iterativ(cycle1.source)
+    cycle1.dfs_iterativ(cycle1.source)
+    tree = cycle1.spanning_tree

@@ -6,6 +6,7 @@ coverage run -a edge.py
 coverage run -a graph.py
 coverage run -a node.py
 coverage run -a wline.py
+coverage run -a cycle.py
 coverage run -a test_edge.py
 coverage run -a test_node.py
 coverage run -a test_graph.py
@@ -33,8 +34,6 @@ coverage run -a read_stsp.py instances/instances/stsp/Test_upper_diag_row.tsp
 coverage run -a test_read_stsp.py instances/instances/stsp/Test_lower_row.tsp
 coverage run -a test_read_stsp.py instances/instances/stsp/Test_upper_diag_row.tsp
 
-coverage run -a main.py instances/instances/stsp/pa561.tsp prim
-coverage run -a main.py instances/instances/stsp/brg180.tsp prim
 coverage run -a main.py instances/instances/stsp/gr120.tsp prim
 coverage run -a main.py instances/instances/stsp/brazil58.tsp prim
 coverage run -a main.py instances/instances/stsp/swiss42.tsp prim
@@ -53,8 +52,8 @@ coverage run -a main.py instances/instances/stsp/Test_lower_row.tsp prim
 coverage run -a main.py instances/instances/stsp/Test_upper_diag_row.tsp prim
 coverage run -a main.py instances/instances/stsp/Test_lower_diag_row.tsp prim
 
-coverage run -a main.py instances/instances/stsp/pa561.tsp kruskal
-coverage run -a main.py instances/instances/stsp/brg180.tsp kruskal
+
+
 coverage run -a main.py instances/instances/stsp/gr120.tsp kruskal
 coverage run -a main.py instances/instances/stsp/brazil58.tsp kruskal
 coverage run -a main.py instances/instances/stsp/swiss42.tsp kruskal
@@ -74,5 +73,5 @@ coverage run -a main.py instances/instances/stsp/Test_upper_diag_row.tsp kruskal
 coverage run -a main.py instances/instances/stsp/Test_lower_diag_row.tsp kruskal
 
 
-coverage report -m wline.py node.py main.py mst.py graph.py edge.py test_read_stsp.py read_stsp.py test_edge.py  test_node.py test_graph.py 
-coverage html wline.py node.py main.py mst.py graph.py edge.py test_read_stsp.py read_stsp.py test_edge.py  test_node.py test_graph.py 
+coverage report -m wline.py cycle.py node.py main.py mst.py graph.py edge.py test_read_stsp.py read_stsp.py test_edge.py  test_node.py test_graph.py 
+coverage html wline.py cycle.py node.py main.py mst.py graph.py edge.py test_read_stsp.py read_stsp.py test_edge.py  test_node.py test_graph.py 
