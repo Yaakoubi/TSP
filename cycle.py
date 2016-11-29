@@ -27,7 +27,7 @@ class Cycle(Graph):
         Graph.__init__(self, name)
         if original_graph is not None:
             self.__source = original_graph.get_node(num_node)
-            Node._node_count = -1
+            self.__source.reset_node_count()
             for node in original_graph.get_nodes():
                 self.add_node(node)
             # print name
@@ -97,7 +97,7 @@ class Cycle(Graph):
                 self.dfs(local_node)
 
     def dfs_iterativ(self, root):
-
+        """version iterative du parcours en profondeur de l'arbre de source = root"""
         pile = Stack()
         pile.push(root)  # root devient racine d'une nouvelle arborescence.
         while not pile.is_empty():

@@ -81,11 +81,13 @@ class TestGraphMethods(unittest.TestCase):
         self.assertIsInstance(
             self._gra_test.get_neighbors(
                 self.nod_test2), dict)
+        self.assertTrue(self._gra_test.get_neighbors2(None) is None)
 
     def test_get_neighbors2(self):
         self.assertIsInstance(
             self._gra_test.get_neighbors2(
                 self.nod_test2), wline.File)
+        self.assertTrue(self._gra_test.get_neighbors2(None) is None)
 
     def test_get_neighbors3(self):
         self.assertIsInstance(

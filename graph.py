@@ -69,10 +69,6 @@ class Graph(object):
     def usage(self):
         return self.__usage
 
-    @property
-    def dict(self):
-        return self.__dict
-
     def add_weight(self, weight):
         """Ajoute un poids au graphe."""
         if (weight is not None) and (isinstance(

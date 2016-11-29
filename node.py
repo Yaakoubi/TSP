@@ -36,6 +36,9 @@ class Node(object):
         s += ' (donnees: ' + repr(data) + ')'
         return s
 
+    def reset_node_count(self):
+        self._node_count = -1
+
     @property
     def father(self):
         return self.__father
