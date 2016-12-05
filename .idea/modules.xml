@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../MTH6412B/Differentiation_automatique/.idea/Differentiation_automatique.iml" filepath="$PROJECT_DIR$/../MTH6412B/Differentiation_automatique/.idea/Differentiation_automatique.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Projet.iml" filepath="$PROJECT_DIR$/.idea/Projet.iml" />
     </modules>
   </component>

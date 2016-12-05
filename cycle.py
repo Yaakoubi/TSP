@@ -13,10 +13,6 @@ class Cycle(Graph):
     """ This is a special kind of graph made to search for the shortest path"""
 
     # ordrerd_list = []
-    file = File()
-    __found = True
-    __kruskal = False
-    __prim = False
 
     def __init__(
             self,
@@ -24,6 +20,10 @@ class Cycle(Graph):
             original_graph=None,
             method='kruskal',
             num_node=0):
+        self.file = File()
+        self.__found = True
+        self.__kruskal = False
+        self.__prim = False
         Graph.__init__(self, name)
         if original_graph is not None:
             self.__source = original_graph.get_node(num_node)
@@ -37,7 +37,7 @@ class Cycle(Graph):
                 self.__source = original_graph.get_node(0).ancestor
                 self.__kruskal = True
 
-            elif method == 'prim':
+            else :
                 # source = original_graph.get_node(randint(0, original_graph.get_nb_nodes() - 1))
                 self.__source = original_graph.get_node(num_node)
                 self.__spanning_tree = Mst(
@@ -47,7 +47,7 @@ class Cycle(Graph):
                     source=self.__source)
                 self.__prim = True
             # LIGNE A CHANGER SI ON VEUT PARCOURIR EN ITERATIF (OU EN RECURSIF)
-            self.dfs(self.__source)
+            self.dfs_iterativ(self.__source)
             self.trace_cycle(original_graph)
             # self.__spanning_tree.plot_graph()
             # self.plot_graph()

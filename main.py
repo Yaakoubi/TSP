@@ -69,7 +69,7 @@ if __name__ == "__main__":
                 # print "Poids optimal : " + str(graph_min.poids_opt) + \
                 #       "\nErreur relative : " + str(graph_min.err_rel * 100) + "%"
 
-    # graph_min.plot_graph()
+    graph_min.plot_graph()
     # graph_min.spanning_tree.plot_graph()
     if graph_min.prim:
         print "Poids obtenu avec Prim pour le graphe " + header['NAME'] + ": " + str(graph_min.poids_algo)
