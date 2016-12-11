@@ -27,11 +27,11 @@ def get_visit_order(geoPoints):
     print "fist leg length: ", get_distance(geoPoints[0], geoPoints[1])
     order = range(nMarks)  # default order
     order += [order[0]]
-
+    
     G = Graph(name='Graphe test')
     for k in xrange(len(geoPoints)):
         coords = [geoPoints[k].lat, geoPoints[k].lng]
-        test_node = Node(name='Ntest {0:d}'.format(k), data=coords, new_id=k)
+        test_node = Node(name='Ntest {0:d}'.format(k), data=coords)
         G.add_node(test_node)
 
     for i in range(G.get_nb_nodes()):

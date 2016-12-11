@@ -5,7 +5,7 @@ class Node(object):
 
     _node_count = -1   # Compteur global partage par toutes les instances.
 
-    def __init__(self, name='Sans nom', data=None, new_id=0):
+    def __init__(self, name='Sans nom', data=None):
         self.__name = name
         self.__data = data
         Node._node_count += 1
@@ -15,8 +15,6 @@ class Node(object):
         self.__ancestor = self
         self.__min_weight = float('infinity')
         self.__prim_father = None
-        if new_id is not None:
-            self.__new_id = new_id
 
     def get_name(self):
         """"Donne le nom du noeud."""
@@ -43,7 +41,7 @@ class Node(object):
         return s
 
     def reset_node_count(self):
-        self._node_count = -1
+        Node._node_count = -1
 
     @property
     def father(self):

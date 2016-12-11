@@ -23,7 +23,8 @@ class Graph(object):
         self.__dict = {}
         self.__total_weight = 0
         self.__node_count = 0
-        Node._node_count = -1
+        # test = Node ()
+        # test.reset_node_count()
 
     def add_node(self, node):
         """Ajoute un noeud au graphe."""
