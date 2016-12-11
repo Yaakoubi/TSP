@@ -26,7 +26,7 @@ def get_visit_order(geoPoints):
     nMarks = len(geoPoints)
     print "fist leg length: ", get_distance(geoPoints[0], geoPoints[1])
     order = range(nMarks)  # default order
-    order = order + [order[0]]
+    order += [order[0]]
 
     G = Graph(name='Graphe test')
     for k in xrange(len(geoPoints)):

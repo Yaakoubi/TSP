@@ -44,8 +44,8 @@ def get_order():
     """
     lats = map(float, json.loads(request.args.get('lats')))
     lngs = map(float, json.loads(request.args.get('lngs')))
-    nMarks = len(lats)
-    geoPoints = [GeoPoint(lats[i], lngs[i]) for i in range(nMarks)]
+    longueur = len(lats)
+    geoPoints = [GeoPoint(lats[i], lngs[i]) for i in range(longueur)]
     order = get_visit_order(geoPoints)
     resp = make_response(json.dumps(order))
     resp.headers['Content-Type'] = "application/json"
