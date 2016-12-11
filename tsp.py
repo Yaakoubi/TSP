@@ -28,8 +28,8 @@ def fullmap():
             "position:absolute;"
             "z-index:200;"
         ),
-        lat=45.5017,
-        lng=-73.5673,
+        lat=36.8189,
+        lng=10.1657,
         zoom=12,
         markers=[],
     )
@@ -45,8 +45,8 @@ def get_order():
     lats = map(float, json.loads(request.args.get('lats')))
     lngs = map(float, json.loads(request.args.get('lngs')))
     longueur = len(lats)
-    geoPoints = [GeoPoint(lats[i], lngs[i]) for i in range(longueur)]
-    order = get_visit_order(geoPoints)
+    geo_points = [GeoPoint(lats[i], lngs[i]) for i in range(longueur)]
+    order = get_visit_order(geo_points)
     resp = make_response(json.dumps(order))
     resp.headers['Content-Type'] = "application/json"
     return resp

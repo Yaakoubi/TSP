@@ -23,11 +23,11 @@ def get_visit_order(geoPoints):
     In the example implementation below, we visit each point by the order
     in which they were marked (clicked).
     """
-    nMarks = len(geoPoints)
+    longueur = len(geoPoints)
     print "fist leg length: ", get_distance(geoPoints[0], geoPoints[1])
-    order = range(nMarks)  # default order
+    order = range(longueur)  # default order
     order += [order[0]]
-    
+
     G = Graph(name='Graphe test')
     for k in xrange(len(geoPoints)):
         coords = [geoPoints[k].lat, geoPoints[k].lng]
@@ -58,4 +58,9 @@ def get_visit_order(geoPoints):
             num_node=num_node)
         if graph_min is None or cycle2.weight < graph_min.weight:
             graph_min = cycle2
+
+    # print "Hello world"
+    # graph_min.plot_graph()
+
+
     return graph_min.ordrerd_list
