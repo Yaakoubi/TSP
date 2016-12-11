@@ -19,6 +19,6 @@ def get_distance(p1, p2):
     url = "https://maps.googleapis.com/maps/api/distancematrix/json?" \
           "origins={0},{1}&destinations={2},{3}&mode=driving&language=en-EN&" \
           "sensor=false&key={4}".format(
-            str(p1.lat), str(p1.lng), str(p2.lat), str(p2.lng), api_key)
+              str(p1.lat), str(p1.lng), str(p2.lat), str(p2.lng), api_key)
     result = simplejson.load(urllib.urlopen(url))
     return result["rows"][0]["elements"][0]["distance"]["value"]

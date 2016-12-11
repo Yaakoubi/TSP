@@ -22,6 +22,8 @@ class Graph(object):
         self.__edges = []  # Attribut prive.
         self.__dict = {}
         self.__total_weight = 0
+        self.__node_count = 0
+        Node._node_count = -1
 
     def add_node(self, node):
         """Ajoute un noeud au graphe."""

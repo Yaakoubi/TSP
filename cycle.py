@@ -12,7 +12,6 @@ from edge import Edge
 class Cycle(Graph):
     """ This is a special kind of graph made to search for the shortest path"""
 
-
     def __init__(
             self,
             name='Sans nom',
@@ -37,7 +36,7 @@ class Cycle(Graph):
                 self.__source = original_graph.get_node(0).ancestor
                 self.__kruskal = True
 
-            else :
+            else:
                 # source = original_graph.get_node(randint(0, original_graph.get_nb_nodes() - 1))
                 self.__source = original_graph.get_node(num_node)
                 self.__spanning_tree = Mst(
@@ -121,16 +120,18 @@ class Cycle(Graph):
         #     self.add_edge(original_graph.get_edge_from_dict(self.__ordrerd_list[i-1],self.__ordrerd_list[i]))
         source = self.file.dequeue()
         node2 = source
-        self.__ordrerd_list.append (source)
+        self.__ordrerd_list.append(source.get_id())
+
         while not self.file.is_empty():
             node1 = node2
             node2 = self.file.dequeue()
             edge_to_add = original_graph.get_edge_from_dict(node1, node2)
             self.add_edge(edge_to_add)
-            self.__ordrerd_list.append(node2)
+            self.__ordrerd_list.append(node2.get_id())
             self.add_weight(edge_to_add.weight)
         edge_to_add = original_graph.get_edge_from_dict(source, node2)
         self.add_edge(edge_to_add)
+        self.__ordrerd_list.append(source.get_id())
         self.add_weight(edge_to_add.weight)
 
 

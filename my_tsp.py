@@ -6,6 +6,7 @@ from node import Node
 from edge import Edge
 from cycle import Cycle
 
+
 def get_visit_order(geoPoints):
     """THIS IS THE ONLY FUNCTION THAT YOU NEED TO MODIFY FOR PHASE 5.
 
@@ -28,9 +29,9 @@ def get_visit_order(geoPoints):
     order = order + [order[0]]
 
     G = Graph(name='Graphe test')
-    for k in xrange(len(geoPoints)):  # nb_nodes ici = 10
-        coords = [geoPoints[k].lat,geoPoints[k].lng]
-        test_node = Node(name='Ntest {0:d}'.format(k), data=coords)
+    for k in xrange(len(geoPoints)):
+        coords = [geoPoints[k].lat, geoPoints[k].lng]
+        test_node = Node(name='Ntest {0:d}'.format(k), data=coords, new_id=k)
         G.add_node(test_node)
 
     for i in range(G.get_nb_nodes()):
@@ -39,9 +40,9 @@ def get_visit_order(geoPoints):
             start = G.get_node(i)
             arrival = G.get_node(j)
             # print  start , arrival , '\n'
-            e_data = [start, arrival, get_distance(geoPoints[i],geoPoints[j]) ]
+            e_data = [start, arrival, get_distance(geoPoints[i], geoPoints[j])]
             e = Edge(
-                name='Edge'+str(i)+'-'+str(j),
+                name='Edge' + str(i) + '-' + str(j),
                 data=e_data)
             G.add_edge(e)
             G.add_to_dict(e)
@@ -51,20 +52,10 @@ def get_visit_order(geoPoints):
     repetitions = xrange(len(geoPoints))
     for num_node in repetitions:
         cycle2 = Cycle(
-            name="Prim"+str(num_node),
+            name="Prim" + str(num_node),
             original_graph=G,
             method='prim',
             num_node=num_node)
         if graph_min is None or cycle2.weight < graph_min.weight:
             graph_min = cycle2
-
-
-
-
-    f = open('workfile.txt', 'w')
-    f.write("dist01 = " , )
-    f.write("dist10 = " , get_distance(geoPoints[1],geoPoints[0]))
-    f.write("dist12 = " , get_distance(geoPoints[1],geoPoints[2]))
-    f.write("dist21 = " , get_distance(geoPoints[2],geoPoints[1]))
-
-    return order
+    return graph_min.ordrerd_list
