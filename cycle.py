@@ -12,7 +12,6 @@ from edge import Edge
 class Cycle(Graph):
     """ This is a special kind of graph made to search for the shortest path"""
 
-    # ordrerd_list = []
 
     def __init__(
             self,
@@ -24,6 +23,7 @@ class Cycle(Graph):
         self.__found = True
         self.__kruskal = False
         self.__prim = False
+        self.__ordrerd_list = []
         Graph.__init__(self, name)
         if original_graph is not None:
             self.__source = original_graph.get_node(num_node)
@@ -47,7 +47,7 @@ class Cycle(Graph):
                     source=self.__source)
                 self.__prim = True
             # LIGNE A CHANGER SI ON VEUT PARCOURIR EN ITERATIF (OU EN RECURSIF)
-            self.dfs_iterativ(self.__source)
+            self.dfs(self.__source)
             self.trace_cycle(original_graph)
             # self.__spanning_tree.plot_graph()
             # self.plot_graph()
@@ -85,8 +85,12 @@ class Cycle(Graph):
     def prim(self):
         return self.__prim
 
+    @property
+    def ordrerd_list(self):
+        return self.__ordrerd_list
+
     def dfs(self, node):
-        # self.ordrerd_list.append(node)
+        # self.__ordrerd_list.append(node)
         self.file.enqueue(node)
         # print "node = ", node
         local_node_neighbors = self.__spanning_tree.get_neighbors3(node)
@@ -114,14 +118,16 @@ class Cycle(Graph):
     def trace_cycle(self, original_graph):
         """build the cycle,once the nodes are in ordre"""
         # for i in xrange(0,original_graph.get_nb_nodes()):
-        #     self.add_edge(original_graph.get_edge_from_dict(self.ordrerd_list[i-1],self.ordrerd_list[i]))
+        #     self.add_edge(original_graph.get_edge_from_dict(self.__ordrerd_list[i-1],self.__ordrerd_list[i]))
         source = self.file.dequeue()
         node2 = source
+        self.__ordrerd_list.append (source)
         while not self.file.is_empty():
             node1 = node2
             node2 = self.file.dequeue()
             edge_to_add = original_graph.get_edge_from_dict(node1, node2)
             self.add_edge(edge_to_add)
+            self.__ordrerd_list.append(node2)
             self.add_weight(edge_to_add.weight)
         edge_to_add = original_graph.get_edge_from_dict(source, node2)
         self.add_edge(edge_to_add)

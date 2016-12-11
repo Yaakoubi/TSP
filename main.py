@@ -80,3 +80,5 @@ if __name__ == "__main__":
         print "Poids optimal : ", str(graph_min.poids_opt), "\nErreur relative : ", str(graph_min.err_rel * 100), "%\n"
     else:
         print 'valeur du chemin optimal non trouvee\n'
+
+    print graph_min.ordrerd_list
