@@ -26,7 +26,7 @@ class Cycle(Graph):
         Graph.__init__(self, name)
         if original_graph is not None:
             self.__source = original_graph.get_node(num_node)
-            self.__source.reset_node_count()
+            self.__source.reset_node_count(self)
             for node in original_graph.get_nodes():
                 self.add_node(node)
             # print name

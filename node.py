@@ -24,10 +24,6 @@ class Node(object):
         """Donne le numero d'identification du noeud."""
         return self.__id
 
-    def get_new_id(self):
-        """Donne le numero d'identification du noeud."""
-        return self.__new_id
-
     def get_data(self):
         """Donne les donnees contenues dans le noeud."""
         return self.__data

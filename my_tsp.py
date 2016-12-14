@@ -24,9 +24,16 @@ def get_visit_order(geoPoints):
     in which they were marked (clicked).
     """
     longueur = len(geoPoints)
-    print "fist leg length: ", get_distance(geoPoints[0], geoPoints[1])
+    print "first leg length: ", get_distance(geoPoints[0], geoPoints[1])
     order = range(longueur)  # default order
     order += [order[0]]
+
+    longueur_totale = 0
+    for x in xrange(longueur-1):
+        longueur_totale += get_distance(geoPoints[x], geoPoints[x+1])
+    longueur_totale += get_distance(geoPoints[-1],geoPoints[0])
+    print "Longueur totale du cycle Google maps : " +str(longueur_totale)
+    print order
 
     G = Graph(name='Graphe test')
     for k in xrange(len(geoPoints)):
@@ -59,8 +66,8 @@ def get_visit_order(geoPoints):
         if graph_min is None or cycle2.weight < graph_min.weight:
             graph_min = cycle2
 
-    # print "Hello world"
-    # graph_min.plot_graph()
+    print "Longueur totale du cycle etudiant : " + str(graph_min.weight)
+    graph_min.plot_graph()
 
 
     return graph_min.ordrerd_list
