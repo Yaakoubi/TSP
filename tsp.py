@@ -28,8 +28,8 @@ def fullmap():
             "position:absolute;"
             "z-index:200;"
         ),
-        lat= 36.8189,
-        lng= 10.1657,
+        lat= 48.80000,
+        lng= 2.133330,
     #     France
     # lat = 48.80000,
     # lng = 2.133330,
