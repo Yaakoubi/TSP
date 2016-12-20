@@ -36,7 +36,8 @@ class Node(object):
         s += ' (donnees: ' + repr(data) + ')'
         return s
 
-    def reset_node_count(self):
+    @classmethod
+    def reset_node_count(cls):
         Node._node_count = -1
 
     @property
