@@ -38,7 +38,7 @@ class Node(object):
 
     @classmethod
     def reset_node_count(cls):
-        Node._node_count = -1
+        cls._node_count = -1
 
     @property
     def father(self):
