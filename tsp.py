@@ -28,17 +28,17 @@ def fullmap():
             "position:absolute;"
             "z-index:200;"
         ),
-        lat= 48.80000,
-        lng= 2.133330,
-    #     France
-    # lat = 48.80000,
-    # lng = 2.133330,
-    #       Tunis
-    # lat = 36.8189,
-    #       lng = 10.1657,
-    #             Mont
-    # lat = 45.5017,
-    #       lng = -73.5673,
+        lat=48.80000,
+        lng=2.133330,
+        # France
+        # lat = 48.80000,
+        # lng = 2.133330,
+        # Tunis
+        # lat = 36.8189,
+        # lng = 10.1657,
+        # Montreal
+        # lat = 45.5017,
+        # lng = -73.5673,
         zoom=12,
         markers=[],
     )

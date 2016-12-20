@@ -1,7 +1,5 @@
 #!/bin/bash
 
-python main.py instances/instances/stsp/pa561.tsp prim
-python main.py instances/instances/stsp/brg180.tsp prim
 python main.py instances/instances/stsp/gr120.tsp prim
 python main.py instances/instances/stsp/brazil58.tsp prim
 python main.py instances/instances/stsp/swiss42.tsp prim
@@ -20,8 +18,6 @@ python main.py instances/instances/stsp/Test_lower_row.tsp prim
 python main.py instances/instances/stsp/Test_upper_diag_row.tsp prim
 python main.py instances/instances/stsp/Test_lower_diag_row.tsp prim
 
-python main.py instances/instances/stsp/pa561.tsp kruskal
-python main.py instances/instances/stsp/brg180.tsp kruskal
 python main.py instances/instances/stsp/gr120.tsp kruskal
 python main.py instances/instances/stsp/brazil58.tsp kruskal
 python main.py instances/instances/stsp/swiss42.tsp kruskal

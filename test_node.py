@@ -26,7 +26,7 @@ class TestNodeMethods(unittest.TestCase):
 
     def test_reset_node_count(self):
         """ Verification que l'indice d'une arete est un nombre entier """
-        self.nod_test1.reset_node_count(self)
+        self.nod_test1.reset_node_count()
         self.assertEqual(Node._node_count, -1)
         # self.assertEqual(self.nod_test2.get_id(), 7)
 
